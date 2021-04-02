@@ -1,4 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
-    
+<h1>This will be a table of all bookings</h1>
+
+{% for booking in bookings %}
+   
+    <p>{{booking.customer.name}} is booked into: {{booking.session.name}}, on {{booking.session.date}}, at {{booking.session.start_time}}</p>
+
+{% endfor %}
+
 {% endblock  %}

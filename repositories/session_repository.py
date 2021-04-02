@@ -20,7 +20,7 @@ def select_all():
     return sessions
 
 
-def select(id):
+def select_by_id(id):
     session = None
     sql = 'SELECT * FROM sessions WHERE id = %s'
     values = [id]

@@ -12,3 +12,10 @@ bookings_blueprint = Blueprint('bookings', __name__)
 def bookings():
     bookings = booking_repository.select_all()
     return render_template('bookings/index.html', bookings=bookings)
+
+
+# @bookings_blueprint.route('/bookings/<id>')
+# def show(id):
+#     booking = booking_repository.select_by_id(id)
+#     return render_template('bookings/show.html', booking=booking)
+# This might be deleted. Might add this to sessions instead

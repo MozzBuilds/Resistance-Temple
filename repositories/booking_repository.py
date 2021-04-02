@@ -21,8 +21,8 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        customer = customer_repository.select(row['customer_id'])
-        session = session_repository.select(row['session_id'])
+        customer = customer_repository.select_by_id(row['customer_id'])
+        session = session_repository.select_by_id(row['session_id'])
         booking = Booking(customer, session, row['id'])
         bookings.append(booking)
     return bookings

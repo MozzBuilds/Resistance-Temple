@@ -1,4 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
-    
+    <h1>This is the individual customer</h1>
+
+    <h3>Name:</h3>
+    <p>
+        {{customer.name}}
+    </p>
+    <p>
+        This page will display membership status and type, and any other details.
+        <br>
+        We will be able to access links to edit the customer on this page -> Edit details, Delete.
+        <br>
+        Could also add here any historical bookings. And the total monthly bookings etc
+    </p>
 {% endblock  %}

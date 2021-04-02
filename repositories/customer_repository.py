@@ -20,7 +20,7 @@ def select_all():
         customers.append(customer)
     return customers
 
-def select(id):
+def select_by_id(id):
     customer = None
     sql = 'SELECT * FROM customers WHERE id = %s'
     values = [id]

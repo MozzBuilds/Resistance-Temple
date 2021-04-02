@@ -9,3 +9,8 @@ customers_blueprint = Blueprint('customers', __name__)
 def customers():
     customers = customer_repository.select_all()
     return render_template('customers/index.html', customers = customers)
+
+@customers_blueprint.route('/customers/<id>')
+def show(id):
+    customer = customer_repository.select_by_id(id)
+    return render_template('customers/show.html', customer=customer)
