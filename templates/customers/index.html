@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>This page will have a table of all the customers</h1>
+<div>
+    {% for customer in customers %}
+        <p>{{ customer.name }}</p>
+    {% endfor %}
+</div>
+{% endblock  %}

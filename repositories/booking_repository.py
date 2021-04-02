@@ -7,6 +7,13 @@ from models.booking import Booking
 import repositories.customer_repository as customer_repository
 import repositories.session_repository as session_repository
 
+def save(booking):
+    sql = 'INSERT INTO bookings(customer_id, session_id) VALUES ( %s, %s) RETURNING id'
+    values = [booking.customer.id, booking.session.id]
+    results = run_sql( sql, values)
+    booking.id = results[0]['id']
+    return booking
+
 def select_all():
     bookings = []
 
@@ -19,3 +26,7 @@ def select_all():
         booking = Booking(customer, session, row['id'])
         bookings.append(booking)
     return bookings
+
+def delete_all():
+    sql = 'DELETE FROM bookings'
+    run_sql(sql)

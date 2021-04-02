@@ -3,5 +3,3 @@ class Booking:
         self.customer = customer
         self.session = session
         self.id = id
-
-        

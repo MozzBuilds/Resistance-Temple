@@ -11,16 +11,32 @@ booking_repository.delete_all()
 session_repository.delete_all()
 customer_repository.delete_all()
 
-# Customer 1
-# Customer 2
-# Customer 3
+# Example Customers
+customer1 = Customer('Morpheus')
+customer_repository.save(customer1)
 
+customer2 = Customer('Trinity')
+customer_repository.save(customer2)
 
-# Session 1
-# Session 2
+customer3 = Customer('Neo')
+customer_repository.save(customer3)
 
-# Booking 1
-# Booking 2
-# Booking 3
+# Example Gym Sessions
+session1 = Session('X-Treme Zumba', 'Endurance', '16/04/2021', '14:00', '17:00')
+session_repository.save(session1)
+
+session2 = Session('Matter over Mind', 'Strength', '17/04/2021', '09:00', '10:30')
+session_repository.save(session2)
+
+# Example Bookings:
+
+booking1 = Booking(customer1, session1)
+booking_repository.save(booking1)
+
+booking2 = Booking(customer2, session1)
+booking_repository.save(booking2)
+
+booking3 = Booking(customer3, session2)
+booking_repository.save(booking3)
 
 pdb.set_trace()
