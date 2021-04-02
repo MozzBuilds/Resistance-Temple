@@ -31,14 +31,13 @@ def update_session(id):
     date = request.form['date']
     start_time = request.form['start_time']
     end_time = request.form['end_time']
-
     session = Session(name, type, date, start_time, end_time, id)
     session_repository.update(session)
     return redirect('/sessions')
 
 # Delete an individual session
 @sessions_blueprint.route('/sessions/<id>/delete', methods=['POST'])
-def delete_session(id):
-    session_repository.delete_by_id(id)
+def delete(id):
+    session_repository.delete(id)
     return redirect('/sessions')
-    # The redirect works, but the delete_by_id does not
+    # The redirect works, but the delete does not

@@ -44,17 +44,16 @@ def select_by_id(id):
 #         customers.append(customer)
 #     return customers
 
+def update(session):
+    sql = 'UPDATE sessions SET (name, type, date, start_time, end_time) = (%s, %s, %s, %s, %s) WHERE id = %s'
+    values = [session.name, session.type, session.date, session.start_time, session.end_time, session.id]
+    run_sql(sql,values)
+
 def delete_all():
     sql = 'DELETE FROM sessions'
     run_sql(sql)
 
-def delete_by_id(id):
+def delete(id):
     sql = 'DELETE FROM sessions WHERE id = %s'
     values = [id]
     run_sql(sql, values)
-    # This currently isn't working in the browser
-
-def update(session):
-    sql = 'UPDATE sessions SET (name, type, date, start_time, end_time) = (%s, %s, %s, %s, %s) WHERE id = %s'
-    values = [session.name, session.type, session.date, session.start_time, session.end_time]
-    run_sql(sql,values)  

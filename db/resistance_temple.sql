@@ -23,7 +23,7 @@ CREATE TABLE sessions (
 
 CREATE TABLE bookings (
     id SERIAL PRIMARY KEY,
-    customer_id INT REFERENCES customers(id),
-    session_id INT REFERENCES sessions(id),
+    customer_id INT REFERENCES customers(id) ON DELETE CASCADE,
+    session_id INT REFERENCES sessions(id) ON DELETE CASCADE,
     review TEXT
 );

@@ -9,23 +9,23 @@
     <form action='/sessions/{{session.id}}' method='POST'>
         <div>
             <label for="name">Name:</label>
-            <input type="text" id='name' name='name' vaue='{{session.name}}' placeholder='{{session.name}}' required>
+            <input type="text" id='name' name='name' value='{{session.name}}' required>
         </div>
         <div>
             <label for="type">Type:</label>
-            <input type="text" id='type' name='type' vaue='{{session.type}}' placeholder='{{session.type}}'required>
+            <input type="text" id='type' name='type' value='{{session.type}}' required>
         </div>
         <div>
             <label for="date">Date:</label>
-            <input type="text" id='date' name='date' vaue='{{session.date}}' placeholder='{{session.date}}'required>
+            <input type="text" id='date' name='date' value='{{session.date}}' required>
         </div>
         <div>
             <label for="start_time">Start Time:</label>
-            <input type="text" id='start_time' name='start_time' vaue='{{session.start_time}}' placeholder='{{session.start_time}}'required>
+            <input type="text" id='start_time' name='start_time' value='{{session.start_time}}' required>
         </div>
         <div>
             <label for="end_time">End Time::</label>
-            <input type="text" id='end_time' name='end_time' vaue='{{session.end_time}}' placeholder='{{session.end_time}}'required>
+            <input type="text" id='end_time' name='end_time' value='{{session.end_time}}' required>
         </div>
 
         <button type='submit'>Update Session</button>
