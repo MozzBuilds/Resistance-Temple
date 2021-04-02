@@ -1,4 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
-    
+<h1>This page shows the info for the page</h1>
+<p>We could later add in user reviews of the class here, or other info such as costs for non-members</p>
+
+<p>{{session.name}}, {{session.type}}, {{session.date}}, {{session.start_time}}, {{session.end_time}}
+</p>
+<p>
+    <button type='button'><a href="/sessions/{{session.id}}/edit">Edit Event</a></button>
+</p>
+
+<form class='delete_button' action='/sessions/{{session.id}}/delete' method='POST'>
+    <button type='submit'>Delete Session</button>
+    <!-- Button works, but all it does is redirect -->
+</form>
+
 {% endblock  %}

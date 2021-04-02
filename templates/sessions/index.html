@@ -5,7 +5,7 @@
 <!-- Can later split tables into past/upcoming/full -->
 
 {% for session in sessions  %}
-    <p>{{session.name}}, {{session.type}}, {{session.date}}, {{session.start_time}}, {{session.end_time}}
+    <p>{{session.name}}, {{session.type}}, {{session.date}}, {{session.start_time}}, {{session.end_time}}, <a href="/sessions/{{session.id}}">Session Info</a>
     </p>
 {% endfor %}
 

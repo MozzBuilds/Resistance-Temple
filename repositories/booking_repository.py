@@ -30,3 +30,14 @@ def select_all():
 def delete_all():
     sql = 'DELETE FROM bookings'
     run_sql(sql)
+
+def delete_by_id(id):
+    sql = 'DELETE FROM customers WHERE id = %s'
+    values = [id]
+    run_sql(sql, values)
+
+# If we want to be able to edit bookings instead of just deleting them. May need to refer to customer.id and session.id
+# def update(booking):
+#     sql = 'UPDATE bookings SET (customer, session) = (%s, %s WHERE id = %s'
+#     values = [booking.customer, booking.session]
+#     run_sql(sql,values) 
