@@ -16,7 +16,7 @@ CREATE TABLE sessions (
     type VARCHAR,
     date VARCHAR,
     start_time VARCHAR,
-    end_time VARCHAR,
+    end_time VARCHAR
     -- finished BOOLEAN
     -- room VARCHAR
 );
