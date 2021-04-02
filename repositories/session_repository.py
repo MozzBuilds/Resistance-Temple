@@ -10,7 +10,6 @@ def save(session):
     session.id = results[0]['id']
     return session
 
-
 def select_all():
     sessions = []
     sql = 'SELECT * FROM sessions'
@@ -20,8 +19,7 @@ def select_all():
         sessions.append(session)
     return sessions
 
-
-def select_by_id(id):
+def select(id):
     session = None
     sql = 'SELECT * FROM sessions WHERE id = %s'
     values = [id]
@@ -30,19 +28,6 @@ def select_by_id(id):
     if result is not None:
         session = Session(result['name'], result['type'], result['date'], result['start_time'], result['end_time'], result['id'])
     return session
-
-
-# This will be required if we want to display the customers booked into a given session
-# def customers(session):
-#     customers = []
-
-#     sql = 'SELECT customers.* FROM customers INNER JOIN bookings ON bookings.customer_id = customers.id WHERE session_id = %s'
-#     values = [session.id]
-#     results = run_sql(sql, values)
-#     for row in results:
-#         customer = Customer(row['customer'], row['id'])
-#         customers.append(customer)
-#     return customers
 
 def update(session):
     sql = 'UPDATE sessions SET (name, type, date, start_time, end_time) = (%s, %s, %s, %s, %s) WHERE id = %s'
@@ -57,3 +42,17 @@ def delete(id):
     sql = 'DELETE FROM sessions WHERE id = %s'
     values = [id]
     run_sql(sql, values)
+
+
+
+# This will be required if we want to display the customers booked into a given session
+# def customers(session):
+#     customers = []
+
+#     sql = 'SELECT customers.* FROM customers INNER JOIN bookings ON bookings.customer_id = customers.id WHERE session_id = %s'
+#     values = [session.id]
+#     results = run_sql(sql, values)
+#     for row in results:
+#         customer = Customer(row['customer'], row['id'])
+#         customers.append(customer)
+#     return customers

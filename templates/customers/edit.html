@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Here we can edit the customer details</h1>
+
+
+    <br>
+
+    <form action='/customers/{{customer.id}}' method='POST'>
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id='name' name='name' value='{{customer.name}}' required>
+        </div>
+       
+        <button type='submit'>Update customer</button>
+    </form>
+
+{% endblock content %}

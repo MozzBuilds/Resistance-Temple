@@ -5,6 +5,13 @@
     <h3>Name:</h3>
     <p>
         {{customer.name}}
+        <div>
+        <button type="button"><a href="/customers/{{customer.id}}/edit">Edit Customer</a></button>
+        </div>
+        <br>
+        <form class='delete_button' action='/customers/{{customer.id}}/delete' method='POST'>
+            <button type='submit'>Remove Customer</button>
+        </form>
     </p>
     <p>
         This page will display membership status and type, and any other details.
@@ -14,3 +21,11 @@
         Could also add here any historical bookings. And the total monthly bookings etc
     </p>
 {% endblock  %}
+
+
+<p>
+    <button type='button'><a href="/sessions/{{session.id}}/edit">Edit Event</a></button>
+</p>
+
+<form class='delete_button' action='/sessions/{{session.id}}/delete' method='POST'>
+    <button type='submit'>Delete Session</button>

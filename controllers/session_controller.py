@@ -14,13 +14,13 @@ def sessions():
 # Show an individual session
 @sessions_blueprint.route('/sessions/<id>')
 def show(id):
-    session = session_repository.select_by_id(id)
+    session = session_repository.select(id)
     return render_template('sessions/show.html', session=session)
 
-# Edit an individual session
+# Form to edit an individual session
 @sessions_blueprint.route('/sessions/<id>/edit')
 def edit(id):
-    session = session_repository.select_by_id(id)
+    session = session_repository.select(id)
     return render_template('/sessions/edit.html', session=session)
 
 # Update an individual session
@@ -40,4 +40,4 @@ def update_session(id):
 def delete(id):
     session_repository.delete(id)
     return redirect('/sessions')
-    # The redirect works, but the delete does not
+
