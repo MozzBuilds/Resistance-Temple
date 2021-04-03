@@ -35,6 +35,23 @@ def update_session(id):
     session_repository.update(session)
     return redirect('/sessions')
 
+# Form to add a new session
+@sessions_blueprint.route('/sessions/new')
+def new():
+    return render_template('/sessions/new.html')
+
+# #Create a new session
+@sessions_blueprint.route('/sessions', methods=['POST'])
+def create():
+    name = request.form['name']
+    type = request.form['type']
+    date = request.form['date']
+    start_time = request.form['start_time']
+    end_time = request.form['end_time']
+    session = Session(name, type, date, start_time, end_time)
+    session_repository.save(session)
+    return redirect('/sessions')
+
 # Delete an individual session
 @sessions_blueprint.route('/sessions/<id>/delete', methods=['POST'])
 def delete(id):

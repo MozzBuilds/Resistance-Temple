@@ -35,6 +35,19 @@ def update_customer(id):
         # source for a multiple-column UPDATE item must be a sub-SELECT or ROW() expression
         # LINE 1: UPDATE customers SET (name) = ('Morpheuss') WHERE id = '4'
 
+# Form to add a new customer
+@customers_blueprint.route('/customers/new')
+def new():
+    return render_template('/customers/new.html')
+
+#Create a new customer
+@customers_blueprint.route('/customers', methods=['POST'])
+def create():
+    name = request.form['name']
+    customer = Customer(name)
+    customer_repository.save(customer)
+    return redirect('/customers')
+
 # Delete a customer
 @customers_blueprint.route('/customers/<id>/delete', methods=['POST'])
 def delete(id):

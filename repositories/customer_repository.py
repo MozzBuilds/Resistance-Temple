@@ -46,16 +46,13 @@ def delete(id):
     values = [id]
     run_sql(sql, values)
 
-
-
-
 # This will be required if we want to display session bookings for a given customer:
-# def sessions(customer):
-#     sessions = []
-#     sql = 'SELECT sessions.* FROM sessions INNER JOIN bookings ON bookings.session_id = sessions.id WHERE customer_id = %s'
-#     values = [customer.id]
-#     results = run_sql(sql, values)
-#     for row in results:
-#         session = Session(row['name'], row['type'], row['date'], row['start_time'], row['end_time'])
-#         sessions.append(session)
-#     return sessions
+def sessions(customer):
+    sessions = []
+    sql = 'SELECT sessions.* FROM sessions INNER JOIN bookings ON bookings.session_id = sessions.id WHERE customer_id = %s'
+    values = [customer.id]
+    results = run_sql(sql, values)
+    for row in results:
+        session = Session(row['name'], row['type'], row['date'], row['start_time'], row['end_time'])
+        sessions.append(session)
+    return sessions

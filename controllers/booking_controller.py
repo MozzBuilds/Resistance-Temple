@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, request
 from flask import Blueprint
 from models.booking import Booking
 
@@ -13,9 +13,29 @@ def bookings():
     bookings = booking_repository.select_all()
     return render_template('bookings/index.html', bookings=bookings)
 
-
 # @bookings_blueprint.route('/bookings/<id>')
 # def show(id):
 #     booking = booking_repository.select_by_id(id)
 #     return render_template('bookings/show.html', booking=booking)
 # This might be deleted. Might add this to sessions instead
+
+@bookings_blueprint.route('/bookings/new')
+def new():
+    customers = customer_repository.select_all()
+    sessions = session_repository.select_all()
+    return render_template('/bookings/new.html', customers=customers, sessions=sessions)
+    # This might need to be all_customers=customers and all_sessions=sessions
+
+@bookings_blueprint.route('/bookings', methods=['POST'])
+def create():
+    customer_id = request.form['customer_id']
+    session_id = request.form['session_id']
+    # unsure about this id but, we haven't used it anywhere
+    customer = customer_repository.select(customer_id)
+    session = session_repository.select(session_id)
+    # if customer has booking for session already
+        # return 'customer is already booked into session
+    # elseif, and indent the following
+    booking = Booking(customer, session)
+    booking_repository.save(booking)
+    return redirect('/bookings')

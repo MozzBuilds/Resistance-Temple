@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Here we can add a new customer</h1>
+
+
+    <br>
+
+    <form action='/customers' method='POST'>
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id='name' name='name' placeholder='Customer Name' required>
+        </div>
+       
+        <button type='submit'>Add New Customer</button>
+    </form>
+
+{% endblock content %}
