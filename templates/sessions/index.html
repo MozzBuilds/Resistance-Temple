@@ -2,7 +2,6 @@
 {% block content %}
 
 <h1>This will be a table of all sessions, past/present/upcoming</h1>
-<!-- Can later split tables into past/upcoming/full -->
 
 {% for session in sessions  %}
     <p>{{session.name}}, {{session.type}}, {{session.date}}, {{session.start_time}}, {{session.end_time}}, <a href="/sessions/{{session.id}}">Session Info</a>

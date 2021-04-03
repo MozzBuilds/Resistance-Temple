@@ -11,13 +11,13 @@ def customers():
     customers = customer_repository.select_all()
     return render_template('customers/index.html', customers = customers)
 
-# Show an individual customer
+# Show a customer
 @customers_blueprint.route('/customers/<id>')
 def show(id):
     customer = customer_repository.select(id)
     return render_template('customers/show.html', customer=customer)
 
-# Form to edit an individual customer
+# Form to edit a customer
 @customers_blueprint.route('/customers/<id>/edit')
 def edit(id):
     customer = customer_repository.select(id)
@@ -32,13 +32,11 @@ def update_customer(id):
     return redirect('/customers')
     # All this is currently doing is redirecting back to /customers
     # Terminal error:
-    # source for a multiple-column UPDATE item must be a sub-SELECT or ROW() expression
+        # source for a multiple-column UPDATE item must be a sub-SELECT or ROW() expression
+        # LINE 1: UPDATE customers SET (name) = ('Morpheuss') WHERE id = '4'
 
-
-
-# # Delete an individual session
-# @sessions_blueprint.route('/sessions/<id>/delete', methods=['POST'])
-# def delete(id):
-#     session_repository.delete(id)
-#     return redirect('/sessions')
-#     # The redirect works, but the delete does not
+# Delete a customer
+@customers_blueprint.route('/customers/<id>/delete', methods=['POST'])
+def delete(id):
+    customer_repository.delete(id)
+    return redirect ('/customers')

@@ -4,18 +4,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="templates/css/style.css"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <title>Home</title>
 </head>
 <body>
-    <a href="/">Home</a>
-    <a href="/customers">Customer Data</a>
-    <a href="/sessions">Training Sessions</a>
-    <a href="/bookings">Bookings</a>
-    <!-- This is the future nav bar -->
+    <header>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/customers">Customer Data</a>
+            <a href="/sessions">Training Sessions</a>
+            <a href="/bookings">Bookings</a>
+        </nav>
+        <section>
+            <p>
+                Resistance Temple
+            </p>
+        </section>
+    </header>
 
-    {% block content %}
+    <main>
+        {% block content %}
         
-    {% endblock content %}
+        {% endblock content %}
+    </main>
+
+   <footer>
+        <ul>
+            <li><a href="">Site Map</a></li>
+            <li><a href="">Support</a></li>
+        </ul>
+        <div>
+            <p>
+                This site is for educational purposes only
+            </p>
+        </div>
+   </footer>
+
 </body>
 </html>

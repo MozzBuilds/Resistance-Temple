@@ -30,7 +30,10 @@ def select(id):
     return customer
 
 def update(customer):
-    sql = 'UPDATE customers SET (name) = (%s) WHERE id = %s'
+    sql = 'UPDATE customers SET (name) = row(%s) WHERE id = %s'
+    # This is a weird one. Session didn't need row(%s) to work, just (%s)
+    # Is it because I only have the one variable?
+    # See what happens when I add in extensions
     values = [customer.name, customer.id]
     run_sql(sql,values)
 
@@ -38,7 +41,7 @@ def delete_all():
     sql = 'DELETE FROM customers'
     run_sql(sql)
 
-def delete_by_id(id):
+def delete(id):
     sql = 'DELETE FROM customers WHERE id = %s'
     values = [id]
     run_sql(sql, values)
