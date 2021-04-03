@@ -54,16 +54,4 @@ def delete(id):
 #     values = [booking.customer, booking.session]
 #     run_sql(sql,values) 
 
-def check_duplicate(customer_id, session_id):
-    # sql = 'SELECT customer, session, COUNT(*) FROM bookings GROUP BY customer, session HAVING COUNT(*)>1'
-    sql = 'SELECT customer_id, session_id FROM bookings WHERE customer_id = %s AND session_id = %s'
-    values = [customer_id, session_id]
-    result = run_sql(sql, values)
-
-    if result is None: return
-    # If there is no result, this means the booking does not exist
-    # Return true. Else return False
-
-    #It's currently seeing every return as false
-
   

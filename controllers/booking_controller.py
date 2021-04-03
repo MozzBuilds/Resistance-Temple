@@ -28,16 +28,16 @@ def new():
 
 @bookings_blueprint.route('/bookings', methods=['POST'])
 def create():
+    bookings = booking_repository.select_all() #This is a list
     customer_id = request.form['customer_id']
     session_id = request.form['session_id']
     customer = customer_repository.select(customer_id)
     session = session_repository.select(session_id)
-    booking = Booking(customer,session)
+    new_booking = Booking(customer,session)
     
-    if booking_repository.check_duplicate(customer_id,session_id):
-        # If the return of this function is True, add the booking
-        booking_repository.save(booking)
-        return redirect('/bookings')
-    else:
-        return 'Booking Already Exists. No new booking has been made'
-        #currently seeing every return as false
+    for booking in bookings:
+        if booking.customer.id == new_booking.customer.id and booking.session.id == new_booking.session.id:
+            return 'Booking Already Exists. No new booking has been made'
+            # This searches for a duplicate entry, and returns an error string if a duplicate is found
+    booking_repository.save(new_booking)
+    return redirect('/bookings')
