@@ -17,7 +17,7 @@ def bookings():
 # def show(id):
 #     booking = booking_repository.select_by_id(id)
 #     return render_template('bookings/show.html', booking=booking)
-# This might be deleted. Might add this to sessions instead
+# This might be deleted. Might add this to sessions instead, or just allow edits/deletes from the select_all route
 
 @bookings_blueprint.route('/bookings/new')
 def new():
@@ -28,16 +28,15 @@ def new():
 
 @bookings_blueprint.route('/bookings', methods=['POST'])
 def create():
-    bookings = booking_repository.select_all() #This is a list
     customer_id = request.form['customer_id']
     session_id = request.form['session_id']
     customer = customer_repository.select(customer_id)
     session = session_repository.select(session_id)
+
     new_booking = Booking(customer,session)
-    
-    for booking in bookings:
-        if booking.customer.id == new_booking.customer.id and booking.session.id == new_booking.session.id:
-            return 'Booking Already Exists. No new booking has been made'
-            # This searches for a duplicate entry, and returns an error string if a duplicate is found
-    booking_repository.save(new_booking)
-    return redirect('/bookings')
+
+    if booking_repository.duplicate_check(new_booking) == True:
+        return 'Booking Already Exists. No new booking has been made'
+    else:
+        booking_repository.save(new_booking)
+        return redirect('/bookings')

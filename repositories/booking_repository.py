@@ -48,10 +48,9 @@ def delete(id):
     values = [id]
     run_sql(sql, values)
 
-# If we want to be able to edit bookings instead of just deleting them. May need to refer to customer.id and session.id
-# def update(booking):
-#     sql = 'UPDATE bookings SET (customer, session) = (%s, %s WHERE id = %s'
-#     values = [booking.customer, booking.session]
-#     run_sql(sql,values) 
-
-  
+def duplicate_check(new_booking):
+    bookings = select_all()
+    for booking in bookings:
+        if booking.customer.id == new_booking.customer.id and booking.session.id == new_booking.session.id: 
+            return True
+    return False
