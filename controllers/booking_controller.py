@@ -40,3 +40,10 @@ def create():
     else:
         booking_repository.save(new_booking)
         return redirect('/bookings')
+
+
+# Delete a booking
+@bookings_blueprint.route('/bookings/<id>/delete', methods=['POST'])
+def delete(id):
+    booking_repository.delete(id)
+    return redirect ('/bookings')

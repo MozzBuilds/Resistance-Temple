@@ -7,7 +7,9 @@
     <p> {{booking.customer.alias}} is booked into: {{booking.session.name}}, on {{booking.session.date}}, at {{booking.session.start_time}}
 
     </p>
-
+    <form class='delete_button' action='/bookings/{{booking.id}}/delete' method='POST'>
+        <button type='submit'>Remove Booking</button>
+    </form>
 {% endfor %}
 
 <button type='button'><a href="/bookings/new">Add New Booking</a></button>
