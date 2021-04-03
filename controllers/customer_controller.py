@@ -26,8 +26,12 @@ def edit(id):
 # Updating the customer with the edited data
 @customers_blueprint.route('/customers/<id>', methods=['POST'])
 def update_customer(id):
-    name = request.form['name']
-    customer = Customer(name, id)
+    forename = request.form['forename']
+    surname = request.form['surname']
+    alias = request.form['alias']
+    membership_status = request.form['membership_status']
+    membership_type = request.form['membership_type']
+    customer = Customer(forename, surname, alias, membership_status, membership_type,id)
     customer_repository.update(customer)
     return redirect('/customers')
     # All this is currently doing is redirecting back to /customers
@@ -43,9 +47,18 @@ def new():
 #Create a new customer
 @customers_blueprint.route('/customers', methods=['POST'])
 def create():
-    name = request.form['name']
-    customer = Customer(name)
-    customer_repository.save(customer)
+    forename = request.form['forename']
+    surname = request.form['surname']
+    alias = request.form['alias']
+    membership_status = request.form['membership_status']
+    membership_type = request.form['membership_type']
+    new_customer = Customer(forename, surname, alias, membership_status, membership_type)
+    # if customer_repository.duplicate_check(new_customer) == True:
+    #     return 'Customer already exists. No new customer has been added'
+    # else:
+    #     customer_repository.save(new_customer)
+    #     return redirect('/customers')
+    customer_repository.save(new_customer)
     return redirect('/customers')
 
 # Delete a customer

@@ -7,8 +7,24 @@
 
     <form action='/customers' method='POST'>
         <div>
-            <label for="name">Name:</label>
-            <input type="text" id='name' name='name' placeholder='Customer Name' required>
+            <label for="forename">Forename:</label>
+            <input type="text" id='forename' name='forename' placeholder='Customer Forename' required>
+        </div>
+        <div>
+            <label for="surname">Surname:</label>
+            <input type="text" id='surname' name='surname' placeholder='Customer Surname' required>
+        </div>
+        <div>
+            <label for="alias">Preferred Alias:</label>
+            <input type="text" id='alias' name='alias' placeholder='Customer preferred alias' required>
+        </div>
+        <div>
+            <label for="membership_status">Membership Status:</label>
+            <input type="text" id='membership_status' name='membership_status' placeholder='Membership Status' required>
+        </div>
+        <div>
+            <label for="membership_type">Membership Type:</label>
+            <input type="text" id='membership_type' name='membership_type' placeholder='Membership Type' required>
         </div>
        
         <button type='submit'>Add New Customer</button>

@@ -5,7 +5,8 @@
 <div>
     {% for customer in customers %}
         <p>
-            <a href='/customers/{{ customer.id}}'>{{ customer.name }}</a>
+            {{customer.forename}}, {{customer.surname}}, {{customer.alias}}, {{customer.membership_status}}, {{customer.membership_type}}, 
+            <a href='/customers/{{ customer.id}}'>View Customer</a>
         </p>
     {% endfor %}
     <p>

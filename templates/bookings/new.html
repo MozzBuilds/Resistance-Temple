@@ -7,7 +7,7 @@
         <select name="customer_id" id="customer">
             {% for customer in customers %}
                 <option value='{{ customer.id }}'>
-                    {{customer.name}}
+                    {{customer.alias}}
                 </option>
             {% endfor %}
         </select>

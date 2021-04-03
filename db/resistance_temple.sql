@@ -4,9 +4,11 @@ DROP TABLE customers;
 
 CREATE TABLE customers (
     id SERIAL PRIMARY KEY,
-    name VARCHAR
-    -- membership_type VARCHAR
-    -- membership_status BOOLEAN
+    forename VARCHAR,
+    surname VARCHAR,
+    alias VARCHAR,
+    membership_status BOOLEAN,
+    membership_type VARCHAR
     -- monthly_sessions_had INT
 );
 

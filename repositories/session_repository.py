@@ -1,7 +1,7 @@
 from db.run_sql import run_sql
 
 from models.session import Session
-from models.customer import Customer
+# from models.customer import Customer
 
 def save(session):
     sql = 'INSERT INTO sessions( name, type, date, start_time, end_time ) VALUES ( %s, %s, %s, %s, %s ) RETURNING id'
@@ -43,14 +43,27 @@ def delete(id):
     values = [id]
     run_sql(sql, values)
 
-# This will be required if we want to display the customers booked into a given session
-def customers(session):
-    customers = []
+# # This will be required if we want to display the customers booked into a given session
+# def customers(session):
+#     customers = []
 
-    sql = 'SELECT customers.* FROM customers INNER JOIN bookings ON bookings.customer_id = customers.id WHERE session_id = %s'
-    values = [session.id]
-    results = run_sql(sql, values)
-    for row in results:
-        customer = Customer(row['customer'], row['id'])
-        customers.append(customer)
-    return customers
+#     sql = 'SELECT customers.* FROM customers INNER JOIN bookings ON bookings.customer_id = customers.id WHERE session_id = %s'
+#     values = [session.id]
+#     results = run_sql(sql, values)
+#     for row in results:
+#         customer = Customer(row['customer'], row['id'])
+#         customers.append(customer)
+#     return customers
+
+
+# def availability_check(new_session):
+#     sessions = select_all()
+#     for session in sessions:
+#         if session.date == new_session.date
+#         # if booking.customer.id == new_booking.customer.id and booking.session.id == new_booking.session.id: 
+#             return True
+#     return False
+
+    # Can either fill in every single detail to check for duplicates
+    # Or make a new function for time_overlap()
+    # Or do it via time overlap. IF date = date AND time_overlap = TRUE

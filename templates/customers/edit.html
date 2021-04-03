@@ -7,8 +7,24 @@
 
     <form action='/customers/{{customer.id}}' method='POST'>
         <div>
-            <label for="name">Name:</label>
-            <input type="text" id='name' name='name' value='{{customer.name}}' required>
+            <label for="forename">Forename:</label>
+            <input type="text" id='forename' name='forename' value='{{ customer.forename }}' required>
+        </div>
+        <div>
+            <label for="surname">Surname:</label>
+            <input type="text" id='surname' name='surname' value='{{ customer.surname }}' required>
+        </div>
+        <div>
+            <label for="alias">Preferred Alias:</label>
+            <input type="text" id='alias' name='alias' value='{{ customer.alias }}' required>
+        </div>
+        <div>
+            <label for="membership_status">Membership Status:</label>
+            <input type="text" id='membership_status' name='membership_status' value='{{ customer.membership_status}}' required>
+        </div>
+        <div>
+            <label for="membership_type">Membership Type:</label>
+            <input type="text" id='membership_type' name='membership_type' value='{{ customer.membership_type }}' required>
         </div>
        
         <button type='submit'>Update customer</button>
