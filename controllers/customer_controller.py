@@ -34,10 +34,6 @@ def update_customer(id):
     customer = Customer(forename, surname, alias, membership_status, membership_type,id)
     customer_repository.update(customer)
     return redirect('/customers')
-    # All this is currently doing is redirecting back to /customers
-    # Terminal error:
-        # source for a multiple-column UPDATE item must be a sub-SELECT or ROW() expression
-        # LINE 1: UPDATE customers SET (name) = ('Morpheuss') WHERE id = '4'
 
 # Form to add a new customer
 @customers_blueprint.route('/customers/new')
@@ -53,11 +49,11 @@ def create():
     membership_status = request.form['membership_status']
     membership_type = request.form['membership_type']
     new_customer = Customer(forename, surname, alias, membership_status, membership_type)
-    # if customer_repository.duplicate_check(new_customer) == True:
-    #     return 'Customer already exists. No new customer has been added'
-    # else:
-    #     customer_repository.save(new_customer)
-    #     return redirect('/customers')
+    if customer_repository.duplicate_check(new_customer) == True:
+        return 'That alias has already been taken. The customer may choose another, or the customer may already be on the system'
+    else:
+        customer_repository.save(new_customer)
+        return redirect('/customers')
     customer_repository.save(new_customer)
     return redirect('/customers')
 

@@ -47,20 +47,19 @@ def delete(id):
     run_sql(sql, values)
 
 # This will be required if we want to display session bookings for a given customer:
-# def sessions(customer):
-#     sessions = []
-#     sql = 'SELECT sessions.* FROM sessions INNER JOIN bookings ON bookings.session_id = sessions.id WHERE customer_id = %s'
-#     values = [customer.id]
-#     results = run_sql(sql, values)
-#     for row in results:
-#         session = Session(row['name'], row['type'], row['date'], row['start_time'], row['end_time'])
-#         sessions.append(session)
-#     return sessions
+def sessions(customer):
+    sessions = []
+    sql = 'SELECT sessions.* FROM sessions INNER JOIN bookings ON bookings.session_id = sessions.id WHERE customer_id = %s'
+    values = [customer.id]
+    results = run_sql(sql, values)
+    for row in results:
+        session = Session(row['name'], row['type'], row['date'], row['start_time'], row['end_time'])
+        sessions.append(session)
+    return sessions
 
-# This has been taken out for now until we add more customer details
-# def duplicate_check(new_customer):
-#     customers = select_all()
-#     for customer in customers:
-#         if customer.id == new_customer.id: 
-#             return True
-#     return False
+def duplicate_check(new_customer):
+    customers = select_all()
+    for customer in customers:
+        if customer.alias == new_customer.alias: 
+            return True
+    return False

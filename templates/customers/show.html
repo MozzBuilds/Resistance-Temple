@@ -6,20 +6,21 @@
     <p>
         {{customer.forename}}, {{customer.surname}}, {{customer.alias}}, {{customer.membership_status}}, {{customer.membership_type}}
         <div>
-        <button type="button"><a href="/customers/{{customer.id}}/edit">Edit Customer</a></button>
+            <p>This customer is currently booked into the following sessions:</p>
+            {{bookings.customer.sessions}}
+            <!-- Doesn't work
+            We want this to display current bookings -->
         </div>
-        <br>
+
+        <div>
+            <button type="button"><a href="/customers/{{customer.id}}/edit">Edit Customer</a></button>
+        </div>
+
         <form class='delete_button' action='/customers/{{customer.id}}/delete' method='POST'>
             <button type='submit'>Remove Customer</button>
         </form>
     </p>
-    <p>
-        This page will display membership status and type, and any other details.
-        <br>
-        We will be able to access links to edit the customer on this page -> Edit details, Delete.
-        <br>
-        Could also add here any historical bookings. And the total monthly bookings etc
-    </p>
+
 {% endblock  %}
 
 
