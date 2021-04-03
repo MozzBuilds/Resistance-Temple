@@ -30,12 +30,14 @@ def new():
 def create():
     customer_id = request.form['customer_id']
     session_id = request.form['session_id']
-    # unsure about this id but, we haven't used it anywhere
     customer = customer_repository.select(customer_id)
     session = session_repository.select(session_id)
-    # if customer has booking for session already
-        # return 'customer is already booked into session
-    # elseif, and indent the following
-    booking = Booking(customer, session)
-    booking_repository.save(booking)
-    return redirect('/bookings')
+    booking = Booking(customer,session)
+    
+    if booking_repository.check_duplicate(customer_id,session_id):
+        # If the return of this function is True, add the booking
+        booking_repository.save(booking)
+        return redirect('/bookings')
+    else:
+        return 'Booking Already Exists. No new booking has been made'
+        #currently seeing every return as false

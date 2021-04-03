@@ -27,6 +27,18 @@ def select_all():
         bookings.append(booking)
     return bookings
 
+# This is used in our booking_controller
+# It checks if a booking for a Customer and Session already exists, before making the booking
+def select(id):
+    booking = None
+    sql = 'SELECT * FROM bookings WHERE id = %s'
+    values = [id]
+    result = run_sql(sql, values)[0]
+  
+    if result is not None:
+        booking = Booking(result['customer'], result['session'], result['id'])
+    return booking
+
 def delete_all():
     sql = 'DELETE FROM bookings'
     run_sql(sql)
@@ -41,3 +53,17 @@ def delete(id):
 #     sql = 'UPDATE bookings SET (customer, session) = (%s, %s WHERE id = %s'
 #     values = [booking.customer, booking.session]
 #     run_sql(sql,values) 
+
+def check_duplicate(customer_id, session_id):
+    # sql = 'SELECT customer, session, COUNT(*) FROM bookings GROUP BY customer, session HAVING COUNT(*)>1'
+    sql = 'SELECT customer_id, session_id FROM bookings WHERE customer_id = %s AND session_id = %s'
+    values = [customer_id, session_id]
+    result = run_sql(sql, values)
+
+    if result is None: return
+    # If there is no result, this means the booking does not exist
+    # Return true. Else return False
+
+    #It's currently seeing every return as false
+
+  
