@@ -25,10 +25,10 @@ customer4 = Customer('Hugo', 'Weaving', 'Agent Smith', 'Inactive', 'None')
 customer_repository.save(customer4)
 
 # Example Gym Sessions
-session1 = Session('X-Treme Zumba', 'Endurance', '16/04/2021', '14:00', '17:00', 3)
+session1 = Session('X-Treme Zumba', 'Endurance', '16-04-2021', '14:00', '17:00', 3)
 session_repository.save(session1)
 
-session2 = Session('Matter over Mind', 'Strength', '17/04/2021', '09:00', '10:30', 1)
+session2 = Session('Matter over Mind', 'Strength', '17-04-2021', '09:00', '10:30', 1)
 session_repository.save(session2)
 
 # Example Bookings:

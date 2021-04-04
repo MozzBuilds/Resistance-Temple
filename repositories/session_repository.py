@@ -30,7 +30,7 @@ def select(id):
     return session
 
 def update(session):
-    sql = 'UPDATE sessions SET (name, type, date, start_time, end_time) = (%s, %s, %s, %s, %s, %s) WHERE id = %s'
+    sql = 'UPDATE sessions SET (name, type, date, start_time, end_time, capacity) = (%s, %s, %s, %s, %s, %s) WHERE id = %s'
     values = [session.name, session.type, session.date, session.start_time, session.end_time, session.capacity, session.id]
     run_sql(sql,values)
 

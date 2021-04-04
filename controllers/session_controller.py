@@ -3,6 +3,8 @@ from flask import Blueprint
 from models.session import Session
 import repositories.session_repository as session_repository
 
+from datetime import datetime
+
 sessions_blueprint = Blueprint('sessions', __name__)
 
 # Show all current sessions on system
@@ -29,14 +31,15 @@ def edit(id):
 def update_session(id):
     name = request.form['name']
     type = request.form['type']
-    date = request.form['date']
+    date_date = request.form['date']
+    date = datetime.strptime(date_date, '%Y-%m-%d').strftime('%d-%m-%Y')
     start_time = request.form['start_time']
     end_time = request.form['end_time']
     capacity = request.form['capacity']
     session = Session(name, type, date, start_time, end_time, capacity, id)
     session_repository.update(session)
     return redirect('/sessions')
-
+   
 # Form to add a new session
 @sessions_blueprint.route('/sessions/new')
 def new():
@@ -47,7 +50,8 @@ def new():
 def create():
     name = request.form['name']
     type = request.form['type']
-    date = request.form['date']
+    date_date = request.form['date']
+    date = datetime.strptime(date_date, '%Y-%m-%d').strftime('%d-%m-%Y')
     start_time = request.form['start_time']
     end_time = request.form['end_time']
     capacity = request.form['capacity']
