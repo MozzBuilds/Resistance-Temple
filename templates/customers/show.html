@@ -8,8 +8,11 @@
         <div>
             <p>This customer is currently booked into the following sessions:</p>
     
-            <!-- Doesn't work
-            We want this to display current bookings -->
+                {% for session in sessions_booked %}
+                    <p>
+                        {{session.name}}, on {{session.date}}, at {{session.start_time}}, until {{session.end_time}}
+                    </p>
+                {% endfor %}
         </div>
 
         <div>

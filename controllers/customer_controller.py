@@ -15,7 +15,8 @@ def customers():
 @customers_blueprint.route('/customers/<id>')
 def show(id):
     customer = customer_repository.select(id)
-    return render_template('customers/show.html', customer=customer)
+    sessions_booked = customer_repository.sessions(customer)
+    return render_template('customers/show.html', customer=customer, sessions_booked=sessions_booked)
 
 # Form to edit a customer
 @customers_blueprint.route('/customers/<id>/edit')
