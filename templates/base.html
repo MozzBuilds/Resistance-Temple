@@ -9,6 +9,9 @@
 </head>
 <body>
     <header>
+        <section id='gym_name'>
+            <h1>Resistance Temple</h1>
+        </section>
         <nav>
             <ul>
                 <li>
@@ -25,12 +28,9 @@
                 </li>
             </ul>
         </nav>
-        <section id='gym_name'>
-                Resistance Temple
-        </section>
     </header>
 
-    <main>
+    <main class='flex-container'>
         {% block content %}
         
         {% endblock content %}
@@ -40,10 +40,7 @@
         <ul>
             <li><a href="">Site Map</a></li>
             <li><a href="">Support</a></li>
-        </ul>
-        <section>
-                This site is for educational purposes only
-        </section>
+        </ul> 
    </footer>
 
 </body>
