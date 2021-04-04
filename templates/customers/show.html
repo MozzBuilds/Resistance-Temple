@@ -1,35 +1,56 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>This is the individual customer</h1>
+    <h2>Customer - <i>{{customer.alias}}</i></h2>
 
-    <h3>Name:</h3>
-    <p>
-        {{customer.forename}}, {{customer.surname}}, {{customer.alias}}, {{customer.membership_status}}, {{customer.membership_type}}
-        <div>
-            <p>This customer is currently booked into the following sessions:</p>
-    
-                {% for session in sessions_booked %}
-                    <p>
-                        {{session.name}}, on {{session.date}}, at {{session.start_time}}, until {{session.end_time}}
-                    </p>
-                {% endfor %}
-        </div>
+<article>
+    <h3>Customer Details:</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Forename</th>
+                <th>Surname</th>
+                <th>Alias</th>
+                <th>Membership Status</th>
+                <th>Membership Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{customer.forename}}</td>
+                <td>{{customer.surname}}</td>
+                <td>{{customer.alias}}</td>
+                <td>{{customer.membership_status}}</td>
+                <td>{{customer.membership_type}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <button type="button"><a href="/customers/{{customer.id}}/edit">Edit Customer</a></button>
+</article>
 
-        <div>
-            <button type="button"><a href="/customers/{{customer.id}}/edit">Edit Customer</a></button>
-        </div>
-
-        <form class='delete_button' action='/customers/{{customer.id}}/delete' method='POST'>
-            <button type='submit'>Remove Customer</button>
-        </form>
-    </p>
-
-{% endblock  %}
-
-
-<p>
-    <button type='button'><a href="/customers/{{customer.id}}/edit">Edit Event</a></button>
-</p>
+<aside>
+    <h3>{{customer.alias}} is booked into the following sessions:</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Date</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+        </tr>
+        {% for session in sessions_booked %}
+        <tr>
+            <td>{{session.name}}</td>
+            <td>{{session.type}}</td>
+            <td>{{session.date}}</td>
+            <td>{{session.start_time}}</td>
+            <td>{{session.end_time}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</aside>
 
 <form class='delete_button' action='/customers/{{customer.id}}/delete' method='POST'>
-    <button type='submit'>Delete Session</button>
+    <button type='submit'>Remove Customer</button>
+</form>
+
+{% endblock  %}

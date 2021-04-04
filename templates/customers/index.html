@@ -1,16 +1,34 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>This page will have a table of all the customers</h1>
-<div>
-    {% for customer in customers %}
-        <p>
-            {{customer.forename}}, {{customer.surname}}, {{customer.alias}}, {{customer.membership_status}}, {{customer.membership_type}}, 
-            <a href='/customers/{{ customer.id}}'>View Customer</a>
-        </p>
-    {% endfor %}
-    <p>
-       <button><a href="/customers/new">New Customer</a></button>
-    </p>
-</div>
+<h2>Customer Data</h2>
+
+<aside>
+    <button><a href="/customers/new">New Customer</a></button>
+</aside>
+
+<article>
+    <table>
+        <thead>
+            <tr>
+                <th>Forename</th>
+                <th>Surname</th>
+                <th>Alias</th>
+                <th>Additional Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for customer in customers %}
+            <tr>
+                <td>{{customer.forename}}</td>
+                <td>{{customer.surname}}</td>
+                <td>{{customer.alias}}</td>
+                <td><a href='/customers/{{ customer.id}}'>View Customer</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+   
+</article>
+   
 {% endblock  %}
