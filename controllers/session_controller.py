@@ -33,6 +33,8 @@ def update_session(id):
     type = request.form['type']
     date_date = request.form['date']
     date = datetime.strptime(date_date, '%Y-%m-%d').strftime('%d-%m-%Y')
+        # Date from the form is in reverse
+        # This line reverses the date, as a string
     start_time = request.form['start_time']
     end_time = request.form['end_time']
     capacity = request.form['capacity']
@@ -55,9 +57,14 @@ def create():
     start_time = request.form['start_time']
     end_time = request.form['end_time']
     capacity = request.form['capacity']
-    session = Session(name, type, date, start_time, end_time, capacity)
-    session_repository.save(session)
-    return redirect('/sessions')
+    new_session = Session(name, type, date, start_time, end_time, capacity)
+
+    # Checks if there is an overlap with another session, assuming gym only has one room for sessions
+    if session_repository.availability_check(new_session) == True:
+        session_repository.save(new_session)
+        return redirect('/sessions')
+    else:
+        return 'Session overlaps another'
 
 # Delete an individual session
 @sessions_blueprint.route('/sessions/<id>/delete', methods=['POST'])

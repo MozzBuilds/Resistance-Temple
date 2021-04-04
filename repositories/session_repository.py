@@ -62,15 +62,11 @@ def capacity_check(session):
     else:
         return True
 
-
-# def availability_check(new_session):
-#     sessions = select_all()
-#     for session in sessions:
-#         if session.date == new_session.date
-#         # if booking.customer.id == new_booking.customer.id and booking.session.id == new_booking.session.id: 
-#             return True
-#     return False
-
-    # Can either fill in every single detail to check for duplicates
-    # Or make a new function for time_overlap()
-    # Or do it via time overlap. IF date = date AND time_overlap = TRUE
+def availability_check(new_session):
+    sessions = select_all()
+    for session in sessions:
+        if session.date == new_session.date:
+            if (new_session.start_time < session.end_time):
+                if (new_session.end_time > session.start_time):
+                    return False
+    return True
