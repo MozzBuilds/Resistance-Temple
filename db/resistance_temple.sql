@@ -18,8 +18,9 @@ CREATE TABLE sessions (
     type VARCHAR,
     date VARCHAR,
     start_time VARCHAR,
-    end_time VARCHAR
-    -- finished BOOLEAN
+    end_time VARCHAR,
+    capacity INT
+    -- finished/in the past BOOLEAN
     -- room VARCHAR
 );
 

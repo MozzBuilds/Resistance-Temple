@@ -32,7 +32,8 @@ def update_session(id):
     date = request.form['date']
     start_time = request.form['start_time']
     end_time = request.form['end_time']
-    session = Session(name, type, date, start_time, end_time, id)
+    capacity = request.form['capacity']
+    session = Session(name, type, date, start_time, end_time, capacity, id)
     session_repository.update(session)
     return redirect('/sessions')
 
@@ -49,7 +50,8 @@ def create():
     date = request.form['date']
     start_time = request.form['start_time']
     end_time = request.form['end_time']
-    session = Session(name, type, date, start_time, end_time)
+    capacity = request.form['capacity']
+    session = Session(name, type, date, start_time, end_time, capacity)
     session_repository.save(session)
     return redirect('/sessions')
 

@@ -53,7 +53,7 @@ def sessions(customer):
     values = [customer.id]
     results = run_sql(sql, values)
     for row in results:
-        session = Session(row['name'], row['type'], row['date'], row['start_time'], row['end_time'])
+        session = Session(row['name'], row['type'], row['date'], row['start_time'], row['end_time'], row['capacity'])
         sessions.append(session)
     return sessions
 
@@ -63,3 +63,10 @@ def duplicate_check(new_customer):
         if customer.alias == new_customer.alias: 
             return True
     return False
+
+def membership_status_check(customer_id):
+    customer = select(customer_id)
+    if customer.membership_status == 'Active':
+        return True
+    else:
+        return False

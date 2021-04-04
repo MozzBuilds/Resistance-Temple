@@ -25,14 +25,13 @@ customer4 = Customer('Hugo', 'Weaving', 'Agent Smith', 'Inactive', 'None')
 customer_repository.save(customer4)
 
 # Example Gym Sessions
-session1 = Session('X-Treme Zumba', 'Endurance', '16/04/2021', '14:00', '17:00')
+session1 = Session('X-Treme Zumba', 'Endurance', '16/04/2021', '14:00', '17:00', 3)
 session_repository.save(session1)
 
-session2 = Session('Matter over Mind', 'Strength', '17/04/2021', '09:00', '10:30')
+session2 = Session('Matter over Mind', 'Strength', '17/04/2021', '09:00', '10:30', 1)
 session_repository.save(session2)
 
 # Example Bookings:
-
 booking1 = Booking(customer1, session1)
 booking_repository.save(booking1)
 
@@ -41,5 +40,8 @@ booking_repository.save(booking2)
 
 booking3 = Booking(customer3, session2)
 booking_repository.save(booking3)
+
+booking4 = Booking(customer3, session1)
+booking_repository.save(booking4)
 
 pdb.set_trace()

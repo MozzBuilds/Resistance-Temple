@@ -4,8 +4,8 @@ from models.session import Session
 from models.customer import Customer
 
 def save(session):
-    sql = 'INSERT INTO sessions( name, type, date, start_time, end_time ) VALUES ( %s, %s, %s, %s, %s ) RETURNING id'
-    values = [session.name, session.type, session.date, session.start_time, session.end_time]
+    sql = 'INSERT INTO sessions( name, type, date, start_time, end_time, capacity) VALUES ( %s, %s, %s, %s, %s, %s ) RETURNING id'
+    values = [session.name, session.type, session.date, session.start_time, session.end_time, session.capacity]
     results = run_sql( sql, values)
     session.id = results[0]['id']
     return session
@@ -15,7 +15,7 @@ def select_all():
     sql = 'SELECT * FROM sessions'
     results = run_sql(sql)
     for row in results:
-        session = Session(row['name'], row['type'], row['date'], row['start_time'], row['end_time'], row['id'])
+        session = Session(row['name'], row['type'], row['date'], row['start_time'], row['end_time'], row['capacity'], row['id'])
         sessions.append(session)
     return sessions
 
@@ -26,12 +26,12 @@ def select(id):
     result = run_sql(sql, values)[0]
 
     if result is not None:
-        session = Session(result['name'], result['type'], result['date'], result['start_time'], result['end_time'], result['id'])
+        session = Session(result['name'], result['type'], result['date'], result['start_time'], result['end_time'], result['capacity'], result['id'])
     return session
 
 def update(session):
-    sql = 'UPDATE sessions SET (name, type, date, start_time, end_time) = (%s, %s, %s, %s, %s) WHERE id = %s'
-    values = [session.name, session.type, session.date, session.start_time, session.end_time, session.id]
+    sql = 'UPDATE sessions SET (name, type, date, start_time, end_time) = (%s, %s, %s, %s, %s, %s) WHERE id = %s'
+    values = [session.name, session.type, session.date, session.start_time, session.end_time, session.capacity, session.id]
     run_sql(sql,values)
 
 def delete_all():
@@ -53,6 +53,14 @@ def customers(session):
         customer = Customer(row['forename'], row['surname'], row['alias'], row['membership_status'], row['membership_type'],row['id'])
         customers.append(customer)
     return customers
+
+# Counts customers in a session
+def capacity_check(session):
+    number_of_customers = len(customers(session)) # this is a list, grabbed from the customers() function
+    if number_of_customers >= session.capacity: #If the length of the customer list is greater/equal to session capacity, it's full
+        return False #There is no room left in the class
+    else:
+        return True
 
 
 # def availability_check(new_session):

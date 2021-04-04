@@ -35,12 +35,17 @@ def create():
     customer = customer_repository.select(customer_id)
     session = session_repository.select(session_id)
     new_booking = Booking(customer,session)
-    if booking_repository.membership_status_check(customer_id) == True:
+    # Is there an alternative to all these stacked conditions?
+
+    if customer_repository.membership_status_check(customer_id) == True:
         if booking_repository.duplicate_check(new_booking) == True:
             return 'Booking Already Exists. No new booking has been made'
         else:
-            booking_repository.save(new_booking)
-            return redirect('/bookings')
+            if session_repository.capacity_check(session) == False:
+                return 'This session is already at maximum capacity and cannot be booked at this time'
+            else:
+                booking_repository.save(new_booking)
+                return redirect('/bookings')
     else:
         return 'The customer has an inactive membership and cannot be booked at this time'
 
