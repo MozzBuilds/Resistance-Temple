@@ -21,6 +21,9 @@ customer_repository.save(customer2)
 customer3 = Customer('Keanu', 'Reeves', 'Neo', True, 'Gold')
 customer_repository.save(customer3)
 
+customer4 = Customer('Hugo', 'Weaving', 'Agent Smith', False, 'None')
+customer_repository.save(customer4)
+
 # Example Gym Sessions
 session1 = Session('X-Treme Zumba', 'Endurance', '16/04/2021', '14:00', '17:00')
 session_repository.save(session1)

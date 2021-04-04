@@ -21,7 +21,8 @@ def show(id):
 @customers_blueprint.route('/customers/<id>/edit')
 def edit(id):
     customer = customer_repository.select(id)
-    return render_template('/customers/edit.html', customer=customer)
+    membership_types = customer.membership_types # A list of possible membership types
+    return render_template('/customers/edit.html', customer=customer, membership_types=membership_types)
 
 # Updating the customer with the edited data
 @customers_blueprint.route('/customers/<id>', methods=['POST'])

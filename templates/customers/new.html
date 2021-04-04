@@ -8,23 +8,31 @@
     <form action='/customers' method='POST'>
         <div>
             <label for="forename">Forename:</label>
-            <input type="text" id='forename' name='forename' placeholder='Customer Forename' required>
+            <input type="text" id='forename' name='forename' placeholder='Forename' required>
         </div>
         <div>
             <label for="surname">Surname:</label>
-            <input type="text" id='surname' name='surname' placeholder='Customer Surname' required>
+            <input type="text" id='surname' name='surname' placeholder='Surname' required>
         </div>
         <div>
             <label for="alias">Preferred Alias:</label>
-            <input type="text" id='alias' name='alias' placeholder='Customer preferred alias' required>
+            <input type="text" id='alias' name='alias' placeholder='Preferred Alias' required>
         </div>
         <div>
             <label for="membership_status">Membership Status:</label>
-            <input type="text" id='membership_status' name='membership_status' placeholder='Membership Status' required>
+            <select name="membership_status" id="membership_status">
+                <option value="true">Active</option>
+                <option value="false">Inactive</option>
+            </select>
         </div>
         <div>
             <label for="membership_type">Membership Type:</label>
-            <input type="text" id='membership_type' name='membership_type' placeholder='Membership Type' required>
+            <select name="membership_type" id="membership_type">
+                <option value="None">None</option>
+                <option value="Silver">Silver</option>
+                <option value="Gold">Gold</option>
+                <option value="Platinum">Platinum</option>
+            </select>
         </div>
        
         <button type='submit'>Add New Customer</button>

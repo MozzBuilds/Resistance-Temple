@@ -20,11 +20,22 @@
         </div>
         <div>
             <label for="membership_status">Membership Status:</label>
-            <input type="text" id='membership_status' name='membership_status' value='{{ customer.membership_status}}' required>
+            <select name="membership_status" id="membership_status">
+                <option value="true">Active</option>
+                <option value="false">Inactive</option>
+            </select>
         </div>
         <div>
             <label for="membership_type">Membership Type:</label>
-            <input type="text" id='membership_type' name='membership_type' value='{{ customer.membership_type }}' required>
+            <select name="membership_type" id="membership_type">
+                {% for membership_type in membership_types %}
+                    {% if membership_type == customer.membership_type %}
+                        <option value="{{membership_type}}" selected='selected'>{{membership_type}}</option>
+                    {% else %}
+                        <option value="{{membership_type}}">{{membership_type}}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
         </div>
        
         <button type='submit'>Update customer</button>

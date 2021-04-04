@@ -7,9 +7,11 @@ class Customer:
         self.membership_status = membership_status
         self.membership_type = membership_type
         self.id = id
+        self.membership_types = ['None', 'Silver', 'Gold', 'Platinum']
 
         # Extension:
         # self.monthly_sessions_had = monthly_sessions_had
 
     # def full_name(self, forename, surname):
     #     return '{forename} {surname}'
+
