@@ -21,8 +21,14 @@
         <div>
             <label for="membership_status">Membership Status:</label>
             <select name="membership_status" id="membership_status">
-                <option value="true">Active</option>
-                <option value="false">Inactive</option>
+                {% for membership_status in membership_status_types %}
+                    {% if membership_status == customer.membership_status %}
+                        <option value="{{membership_status}}" selected='selected'>{{membership_status}}</option>
+                    {% else %}
+                        <option value="{{membership_status}}">{{membership_status}}</option>                    
+                    {% endif %}
+                {% endfor %}
+
             </select>
         </div>
         <div>

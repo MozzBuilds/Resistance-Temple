@@ -12,16 +12,16 @@ session_repository.delete_all()
 customer_repository.delete_all()
 
 # Example Customers
-customer1 = Customer('Laurence', 'Fishburne', 'Morpheus', True, 'Platinum')
+customer1 = Customer('Laurence', 'Fishburne', 'Morpheus', 'Active', 'Platinum')
 customer_repository.save(customer1)
 
-customer2 = Customer('Carrie-Anne', 'Moss', 'Trinity', True, 'Platinum')
+customer2 = Customer('Carrie-Anne', 'Moss', 'Trinity', 'Active', 'Platinum')
 customer_repository.save(customer2)
 
-customer3 = Customer('Keanu', 'Reeves', 'Neo', True, 'Gold')
+customer3 = Customer('Keanu', 'Reeves', 'Neo', 'Active', 'Gold')
 customer_repository.save(customer3)
 
-customer4 = Customer('Hugo', 'Weaving', 'Agent Smith', False, 'None')
+customer4 = Customer('Hugo', 'Weaving', 'Agent Smith', 'Inactive', 'None')
 customer_repository.save(customer4)
 
 # Example Gym Sessions

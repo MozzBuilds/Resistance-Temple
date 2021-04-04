@@ -7,7 +7,7 @@ CREATE TABLE customers (
     forename VARCHAR,
     surname VARCHAR,
     alias VARCHAR,
-    membership_status BOOLEAN,
+    membership_status VARCHAR,
     membership_type VARCHAR
     -- monthly_sessions_had INT
 );
