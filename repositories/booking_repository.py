@@ -56,7 +56,7 @@ def duplicate_check(new_booking):
 
 def membership_status_check(customer_id):
     customer = customer_repository.select(customer_id)
-    if customer.membership_status == True:
+    if customer.membership_status == 'Active':
         return True
     else:
         return False

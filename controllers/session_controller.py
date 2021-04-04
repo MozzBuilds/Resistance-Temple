@@ -15,7 +15,8 @@ def sessions():
 @sessions_blueprint.route('/sessions/<id>')
 def show(id):
     session = session_repository.select(id)
-    return render_template('sessions/show.html', session=session)
+    customers_booked = session_repository.customers(session)
+    return render_template('sessions/show.html', session=session, customers_booked=customers_booked)
 
 # Form to edit an individual session
 @sessions_blueprint.route('/sessions/<id>/edit')

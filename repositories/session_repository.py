@@ -1,7 +1,7 @@
 from db.run_sql import run_sql
 
 from models.session import Session
-# from models.customer import Customer
+from models.customer import Customer
 
 def save(session):
     sql = 'INSERT INTO sessions( name, type, date, start_time, end_time ) VALUES ( %s, %s, %s, %s, %s ) RETURNING id'
@@ -43,17 +43,16 @@ def delete(id):
     values = [id]
     run_sql(sql, values)
 
-# # This will be required if we want to display the customers booked into a given session
-# def customers(session):
-#     customers = []
-
-#     sql = 'SELECT customers.* FROM customers INNER JOIN bookings ON bookings.customer_id = customers.id WHERE session_id = %s'
-#     values = [session.id]
-#     results = run_sql(sql, values)
-#     for row in results:
-#         customer = Customer(row['customer'], row['id'])
-#         customers.append(customer)
-#     return customers
+# Brings in the customers booked into a given session, in a list
+def customers(session):
+    customers = []
+    sql = 'SELECT customers.* FROM customers INNER JOIN bookings ON bookings.customer_id = customers.id WHERE session_id = %s'
+    values = [session.id]
+    results = run_sql(sql, values)
+    for row in results:
+        customer = Customer(row['forename'], row['surname'], row['alias'], row['membership_status'], row['membership_type'],row['id'])
+        customers.append(customer)
+    return customers
 
 
 # def availability_check(new_session):
