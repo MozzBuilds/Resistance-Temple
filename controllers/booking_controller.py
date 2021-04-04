@@ -35,11 +35,14 @@ def create():
 
     new_booking = Booking(customer,session)
 
-    if booking_repository.duplicate_check(new_booking) == True:
-        return 'Booking Already Exists. No new booking has been made'
+    if booking_repository.membership_status_check(customer_id) == True:
+        if booking_repository.duplicate_check(new_booking) == True:
+            return 'Booking Already Exists. No new booking has been made'
+        else:
+            booking_repository.save(new_booking)
+            return redirect('/bookings')
     else:
-        booking_repository.save(new_booking)
-        return redirect('/bookings')
+        return 'The customer has an inactive membership and cannot be booked at this time'
 
 
 # Delete a booking
