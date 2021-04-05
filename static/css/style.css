@@ -14,9 +14,7 @@ header, footer{
     width: 100%;
     display: flex;
     flex-direction: row;
-    align-items: center; 
-    /* flex-wrap: wrap;  */
-        /* This will wrap the nav bar under the RESISTANCE TEMPLE for smaller screens */
+    justify-content:space-between;
 }
 
 .flex-container {
@@ -47,12 +45,9 @@ h2{
 .flex-container > h2 {
     text-align: center;
 }
-nav {
+
+header > nav {
     font-size: 22px;
-    /* display: flex;
-    justify-content:right; */
-    /* flex: right;
-    float: right; */
     margin-right: 5%;
 }
 
