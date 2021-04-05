@@ -41,36 +41,6 @@ aside {
     margin-bottom: 1%;
 }
 
-table {
-    background-color: grey;
-    border-collapse: collapse;
-    margin: 25px 0;
-    box-shadow: 0 0 30px rgba(0,0,0,0.8), 0 0 50px rgba(255, 255, 255, 0.3);
-}
-
-th {
-    background-color: rgb(49, 49, 49);
-    color: #ffffff;
-    text-align: left;
-}
-
-th, td {
-    padding: 10px 13px;
-}
-
-tr {
-    border-bottom: 1px solid rgb(49, 49, 49);
-}
-
-tr:nth-of-type(even) {
-    background-color:rgba(197, 197, 197);
-    color: black;
-}
-
-tr:hover{
-    background-color: white;
-    color: blue;
-}
 /* Just need to fix the anchor tags, which are black and turn white */
 
 h2{
@@ -104,14 +74,10 @@ li > a {
 a {
     text-decoration: none;
     color: black;
-    display: table-cell; 
-        /* Prevents links separating onto two lines with smaller screen */
+    display: table-cell;
 }
 a:hover {
     color: white;
-}
-a:active{
-    color:black;
 }
 
 footer {
@@ -126,40 +92,7 @@ footer {
     letter-spacing: 12px;
 }
 
-button {
-    width: auto;
-    height: 45px;
-    font-size: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5)
-}
 
-button:hover {
-    border: 1px solid black;
-    background-color: white;
-    color: blue;
-}
-.new_button {
-    background-color: rgb(199, 190, 190);
-}
-
-form > button {
-    background-color: rgb(209, 41, 41);
-    width: 50px;
-}
-
-form > button:hover {
-    background-color: red;
-}
-
-/* BUTTON CLASSES:
-    edit_button
-    new_button
-    delete_button
-    submit_button
-     */
 
 /* TO DO:
     Move 'new' button to right hand side, near the table

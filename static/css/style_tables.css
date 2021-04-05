@@ -1,0 +1,34 @@
+
+table {
+    background-color: grey;
+    border-collapse: collapse;
+    border: 1px thin black;
+    margin: 25px 0;
+    box-shadow: 0 0 30px rgba(0,0,0,0.8), 0 0 50px rgba(255, 255, 255, 0.3);
+}
+thead, tr {
+    border-bottom: 1px solid rgb(49, 49, 49);
+}
+
+th {
+    background-color: rgb(49, 49, 49);
+    color: #ffffff;
+    text-align: left;
+ 
+}
+
+
+th, td {
+    padding: 10px 13px;
+}
+
+
+tr:nth-of-type(odd) {
+    background-color:rgba(197, 197, 197);
+    color: black;
+}
+
+tr:hover{
+    background-color: rgb(230, 228, 228);
+    color: blue;
+}

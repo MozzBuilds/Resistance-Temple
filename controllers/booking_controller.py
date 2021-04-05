@@ -11,7 +11,7 @@ bookings_blueprint = Blueprint('bookings', __name__)
 @bookings_blueprint.route('/bookings')
 def bookings():
     bookings = booking_repository.select_all()
-    return render_template('bookings/index.html', bookings=bookings)
+    return render_template('bookings/index.html', title='Bookings', bookings=bookings)
 
 # @bookings_blueprint.route('/bookings/<id>')
 # def show(id):
@@ -23,7 +23,7 @@ def bookings():
 def new():
     customers = customer_repository.select_all()
     sessions = session_repository.select_all()
-    return render_template('/bookings/new.html', customers=customers, sessions=sessions)
+    return render_template('/bookings/new.html', title='New Booking', customers=customers, sessions=sessions)
 
 # Creates a new booking
 # Checks for customer membership status

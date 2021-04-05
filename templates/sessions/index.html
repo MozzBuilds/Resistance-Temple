@@ -19,8 +19,8 @@
                 <th>Date</th>
                 <th>Start Time</th>
                 <th>End Time</th>
-                <th>Maximum capacity</th>
-                <th>View Session</th>
+                <th>Capacity</th>
+                <th>View</th>
             </tr>
         </thead>
         <tbody>
@@ -32,7 +32,10 @@
                 <td>{{session.start_time}}</td>
                 <td>{{session.end_time}}</td>
                 <td>{{session.capacity}}</td>
-                <td><a href="/sessions/{{session.id}}">Session Info</a></td>
+                <td><a href="/sessions/{{session.id}}">
+                    <button class='see_more_button'>
+                        <img src='static/icons/arrow_forward_ios_black_24dp.svg' alt="forward arrow">
+                    </button></a></td>
             </tr>
             {% endfor %}
         </tbody>

@@ -11,20 +11,20 @@ sessions_blueprint = Blueprint('sessions', __name__)
 @sessions_blueprint.route('/sessions')
 def sessions():
     sessions = session_repository.select_all()
-    return render_template('sessions/index.html', sessions=sessions)
+    return render_template('sessions/index.html', title='Training Sessions', sessions=sessions)
 
 # Show an individual session
 @sessions_blueprint.route('/sessions/<id>')
 def show(id):
     session = session_repository.select(id)
     customers_booked = session_repository.customers(session)
-    return render_template('sessions/show.html', session=session, customers_booked=customers_booked)
+    return render_template('sessions/show.html', title=session.name, session=session, customers_booked=customers_booked)
 
 # Form to edit an individual session
 @sessions_blueprint.route('/sessions/<id>/edit')
 def edit(id):
     session = session_repository.select(id)
-    return render_template('/sessions/edit.html', session=session)
+    return render_template('/sessions/edit.html', title=session.name, session=session)
 
 # Update an individual session
 @sessions_blueprint.route('/sessions/<id>', methods=['POST'])
@@ -45,7 +45,7 @@ def update_session(id):
 # Form to add a new session
 @sessions_blueprint.route('/sessions/new')
 def new():
-    return render_template('/sessions/new.html')
+    return render_template('/sessions/new.html', title='New Training Session')
 
 # #Create a new session
 @sessions_blueprint.route('/sessions', methods=['POST'])
