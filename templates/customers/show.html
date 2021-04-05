@@ -1,10 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h2>Customer - <i>{{customer.alias}}</i></h2>
 
 <article>
-    <h3>Customer Details:</h3>
     <table>
+        <caption class='table_heading'><h2>Customer Details</h2></caption>
         <thead>
             <tr>
                 <th>Forename</th>
@@ -24,19 +23,29 @@
             </tr>
         </tbody>
     </table>
-    <button class='edit_button' type="button"><a href="/customers/{{customer.id}}/edit">Edit Customer</a></button>
 </article>
 
-<aside>
-    <h3>{{customer.alias}} is booked into the following sessions:</h3>
+<aside class='edit_button_aside'>
+        <a href="/customers/{{customer.id}}/edit">
+            <button class='edit_button' type="button">
+                Edit Customer
+            </button>
+        </a>
+</aside>
+
+<article>
     <table>
-        <tr>
-            <th>Name</th>
-            <th>Type</th>
-            <th>Date</th>
-            <th>Start Time</th>
-            <th>End Time</th>
-        </tr>
+        <caption class='table_heading'><h2>Current Bookings</h2></caption>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Date</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+            </tr>
+        </thead>
+        <tbody>
         {% for session in sessions_booked %}
         <tr>
             <td>{{session.name}}</td>
@@ -46,11 +55,16 @@
             <td>{{session.end_time}}</td>
         </tr>
         {% endfor %}
+        </tbody>
     </table>
-</aside>
+</article>
 
-<form class='delete_button' action='/customers/{{customer.id}}/delete' method='POST'>
-    <button type='submit'>Remove Customer</button>
-</form>
+<aside>
+    <form class='delete_button' action='/customers/{{customer.id}}/delete' method='POST'>
+        <button type='submit'>
+            Delete Customer
+        </button>        
+    </form>
+</aside>
 
 {% endblock  %}

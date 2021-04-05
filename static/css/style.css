@@ -29,7 +29,7 @@ header, footer{
 }
 
 .flex-container > article {
-    padding-bottom: 3%;
+    padding-bottom: 1%;
     display: flex;
     justify-content: center;
 }
@@ -41,8 +41,6 @@ aside {
     margin-bottom: 1%;
 }
 
-/* Just need to fix the anchor tags, which are black and turn white */
-
 h2{
     font-size: 25px;
 }
@@ -51,9 +49,10 @@ h2{
 }
 nav {
     font-size: 22px;
+    /* display: flex;
+    justify-content:right; */
     /* flex: right;
     float: right; */
-    /* justify-content: right; */
     margin-right: 5%;
 }
 
@@ -91,14 +90,3 @@ footer {
     margin-left: 5%;
     letter-spacing: 12px;
 }
-
-
-
-/* TO DO:
-    Move 'new' button to right hand side, near the table
-    Make the active page text stay white, so we dont need headings
-    Change the tab titles to reflect the page itself
-    Table anchors, either change to a logo, or make it match the row. Also white when hover is bad here
-
-
-*/

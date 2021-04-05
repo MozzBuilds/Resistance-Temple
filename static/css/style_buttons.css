@@ -5,7 +5,8 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5)
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    background-color:rgba(197, 197, 197, 0.8);
 }
 
 button:hover {
@@ -13,27 +14,31 @@ button:hover {
     background-color: rgb(230, 228, 228);
     color: blue;
 }
-.new_button {
-    background-color:rgba(197, 197, 197, 0.8);
-}
+
 
 /* The delete buttons on the bookings page */
 form > button {
     background-color: rgba(200, 38, 38, 0.808);
-    width: 50px;
+    width: auto;
     box-shadow: none;
+    color: white;
+
 }
 
 .delete_button {
     display: flex;
     justify-content: center;
     align-items:center;
+    padding-bottom: 5%;
 }
 
 form > button:hover {
     background-color: red;
     border: 3px solid black;
+    color: black;
 }
+
+
 
 .see_more_button {
     border: none;
@@ -45,6 +50,13 @@ form > button:hover {
     box-shadow: 0 0 5px rgba(0,0,0,0.8);
     border: none;
 }
+
+.edit_button_aside{
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
 /* BUTTON CLASSES:
     edit_button
     new_button
