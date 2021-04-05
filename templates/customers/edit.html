@@ -1,25 +1,29 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>Here we can edit the customer details</h1>
 
-
-    <br>
-
-    <form action='/customers/{{customer.id}}' method='POST'>
+<article>
+    <form class='edit_form' action='/customers/{{customer.id}}' method='POST'>
         <div>
-            <label for="forename">Forename:</label>
+            <label for="forename">Forename</label>
+            <br>
             <input type="text" id='forename' name='forename' value='{{ customer.forename }}' required>
         </div>
+        <br>
         <div>
-            <label for="surname">Surname:</label>
+            <label for="surname">Surname</label>
+            <br>
             <input type="text" id='surname' name='surname' value='{{ customer.surname }}' required>
         </div>
+        <br>
         <div>
-            <label for="alias">Preferred Alias:</label>
+            <label for="alias">Preferred Alias</label>
+            <br>
             <input type="text" id='alias' name='alias' value='{{ customer.alias }}' required>
         </div>
+        <br>
         <div>
-            <label for="membership_status">Membership Status:</label>
+            <label for="membership_status">Membership Status</label>
+            <br>
             <select name="membership_status" id="membership_status">
                 {% for membership_status in membership_status_types %}
                     {% if membership_status == customer.membership_status %}
@@ -31,8 +35,10 @@
 
             </select>
         </div>
+        <br>
         <div>
-            <label for="membership_type">Membership Type:</label>
+            <label for="membership_type">Membership Type</label>
+            <br>
             <select name="membership_type" id="membership_type">
                 {% for membership_type in membership_types %}
                     {% if membership_type == customer.membership_type %}
@@ -43,8 +49,9 @@
                 {% endfor %}
             </select>
         </div>
-       
-        <button type='submit'>Update customer</button>
+        
+        <button class='submit_button' type='submit'>Update customer</button>
     </form>
+</article>
 
 {% endblock content %}

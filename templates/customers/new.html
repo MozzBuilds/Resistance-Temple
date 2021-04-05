@@ -1,32 +1,38 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>Here we can add a new customer</h1>
 
-
-    <br>
-
-    <form action='/customers' method='POST'>
+<article>
+    <form class='new_form' action='/customers' method='POST'>
         <div>
-            <label for="forename">Forename:</label>
+            <label for="forename">Forename</label>
+            <br>
             <input type="text" id='forename' name='forename' placeholder='Forename' required>
         </div>
+        <br>
         <div>
-            <label for="surname">Surname:</label>
+            <label for="surname">Surname</label>
+            <br>
             <input type="text" id='surname' name='surname' placeholder='Surname' required>
         </div>
+        <br>
         <div>
-            <label for="alias">Preferred Alias:</label>
+            <label for="alias">Preferred Alias</label>
+            <br>
             <input type="text" id='alias' name='alias' placeholder='Preferred Alias' required>
         </div>
+        <br>
         <div>
-            <label for="membership_status">Membership Status:</label>
+            <label for="membership_status">Membership Status</label>
+            <br>
             <select name="membership_status" id="membership_status">
                 <option value="Active">Active</option>
                 <option value="Inactive">Inactive</option>
             </select>
         </div>
+        <br>
         <div>
-            <label for="membership_type">Membership Type:</label>
+            <label for="membership_type">Membership Type</label>
+            <br>
             <select name="membership_type" id="membership_type">
                 <option value="None">None</option>
                 <option value="Silver">Silver</option>
@@ -34,7 +40,7 @@
                 <option value="Platinum">Platinum</option>
             </select>
         </div>
-       
         <button class='submit_button' type='submit'>Add New Customer</button>
     </form>
+</article>
 {% endblock content %}

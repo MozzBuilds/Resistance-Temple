@@ -90,3 +90,29 @@ footer {
     margin-left: 5%;
     letter-spacing: 12px;
 }
+
+.edit_form, .new_form {
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+    font-size: 25px;
+    flex-wrap:wrap;
+}
+label {
+    margin-top: 5px;
+}
+
+input, select {
+    margin-top: 8px;
+    padding: 10px;
+    width: auto;
+    font-size: 20px;
+    border: 1px solid black;
+    background-color:rgb(218, 216, 216);
+    box-shadow: 0 0 2px rgba(0,0,0,0.5);
+}
+
+input:hover, select:hover {
+    color: blue;
+    background-color: rgb(230, 228, 228);
+}

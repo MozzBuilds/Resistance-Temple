@@ -12,11 +12,10 @@ thead, tr {
 
 th {
     background-color: rgb(49, 49, 49);
-    color: #ffffff;
+    color: white;
     text-align: left;
- 
+    font-style: bold;
 }
-
 
 th, td {
     padding: 10px 13px;
@@ -24,7 +23,7 @@ th, td {
 
 
 tr:nth-of-type(odd) {
-    background-color:rgba(197, 197, 197);
+    background-color:rgb(218, 216, 216);
     color: black;
 }
 

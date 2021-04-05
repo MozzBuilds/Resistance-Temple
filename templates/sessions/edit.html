@@ -1,37 +1,46 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>Here we can edit the session details</h1>
 
-    <div>Form here to edit</div>
 
-    <br>
-
-    <form action='/sessions/{{session.id}}' method='POST'>
-        <div>
-            <label for="name">Name:</label>
-            <input type="text" id='name' name='name' value='{{session.name}}' required>
-        </div>
-        <div>
-            <label for="type">Type:</label>
-            <input type="text" id='type' name='type' value='{{session.type}}' required>
-        </div>
-        <div>
-            <label for="date">Date:</label>
-            <input type="date" id='date' name='date' required>
-        </div>
-        <div>
-            <label for="start_time">Start Time:</label>
-            <input type="time" id='start_time' name='start_time' value='{{session.start_time}}' required>
-        </div>
-        <div>
-            <label for="end_time">End Time:</label>
-            <input type="time" id='end_time' name='end_time' value='{{session.end_time}}' required>
-        </div>
-        <div>
-            <label for="capacity">Capacity:</label>
-            <input type="number" id='capacity' name='capacity' value='{{session.capacity}}' required>
-        </div>
-        <button type='submit'>Update Session</button>
+<article>
+    <form class='edit_form' action='/sessions/{{session.id}}' method='POST'>
+            <div>
+                <label for="name">Name</label>
+                <br>
+                <input type="text" id='name' name='name' value='{{session.name}}' required>
+            </div>
+            <br>
+            <div>
+                <label for="type">Type</label>
+                <br>
+                <input type="text" id='type' name='type' value='{{session.type}}' required>
+            </div>
+            <br>
+            <div>
+                <label for="capacity">Capacity</label>
+                <br>
+                <input type="number" id='capacity' name='capacity' value='{{session.capacity}}' required>
+            </div>
+            <br>
+            <div>
+                <label for="date">Date</label>
+                <br>
+                <input type="date" id='date' name='date' required>
+            </div>
+            <br>
+            <div>
+                <label for="start_time">Start Time</label>
+                <br>
+                <input type="time" id='start_time' name='start_time' value='{{session.start_time}}' required>
+            </div>
+            <br>
+            <div>
+                <label for="end_time">End Time</label>
+                <br>
+                <input type="time" id='end_time' name='end_time' value='{{session.end_time}}' required>
+            </div>
+        
+        <button class='submit_button' type='submit'>Update Session</button>
     </form>
-
+</article>
 {% endblock content %}

@@ -11,34 +11,46 @@ button {
 
 button:hover {
     border: 1px solid black;
-    background-color: rgb(230, 228, 228);
+    background-color: rgb(240, 236, 236);
     color: blue;
 }
 
+button:active{
+    background-color:white;
+}
 
-/* The delete buttons on the bookings page */
-form > button {
+/* Delete button form on the Bookings index page */
+.delete_button_form {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    padding-bottom: 5%;
+    background-color: rgba(200, 38, 38, 0.808);
+    width: auto;
+    box-shadow: none;
+    color: white;
+}
+
+/* .delete_button_form > button{
+    background-color: rgba(200, 38, 38, 0.808);
+    width: auto;
+    box-shadow: none;
+    color: white; 
+/} */
+
+.delete_button > button {
     background-color: rgba(200, 38, 38, 0.808);
     width: auto;
     box-shadow: none;
     color: white;
 
-}
+} 
 
-.delete_button {
-    display: flex;
-    justify-content: center;
-    align-items:center;
-    padding-bottom: 5%;
-}
-
-form > button:hover {
+.delete_button > button:hover {
     background-color: red;
     border: 3px solid black;
     color: black;
 }
-
-
 
 .see_more_button {
     border: none;
@@ -57,8 +69,10 @@ form > button:hover {
     display: flex;
 }
 
+.submit_button{
+    margin-top: 15%;
+}
 /* BUTTON CLASSES:
-    edit_button
     new_button
     delete_button
     submit_button

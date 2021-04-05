@@ -1,37 +1,46 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>Here we can add a new session</h1>
+<article>
 
-
-    <br>
-
-    <form action='/sessions' method='POST'>
+    <form class='new_form' action='/sessions' method='POST'>
         <div>
-            <label for="name">Name:</label>
+            <label for="name">Name</label>
+            <br>
             <input type="text" id='name' name='name' placeholder='Name' required>
         </div>
+        <br>
         <div>
-            <label for="type">Type:</label>
+            <label for="type">Type</label>
+            <br>
             <input type="text" id='type' name='type' placeholder='Type' required>
         </div>
+        <br>
         <div>
-            <label for="date">Date:</label>
+            <label for="date">Date</label>
+            <br>
             <input type="date" id='date' name='date' required>
         </div>
+        <br>
         <div>
-            <label for="start_time">Start Time:</label>
+            <label for="start_time">Start Time</label>
+            <br>
             <input type="time" id='start_time' name='start_time' value='07:00' required>
         </div>
+        <br>
         <div>
-            <label for="end_time">End Time:</label>
+            <label for="end_time">End Time</label>
+            <br>
             <input type="time" id='end_time' name='end_time' value='21:00' required>
         </div>
+        <br>
         <div>
-            <label for="capacity">Capacity:</label>
+            <label for="capacity">Capacity</label>
+            <br>
             <input type="number" id='capacity' name='capacity' placeholder='10' required>
         </div>
 
-        <button type='submit'>Add New Session</button>
+        <button class='submit_button' type='submit'>Add New Session</button>
     </form>
 
+</article>
 {% endblock content %}

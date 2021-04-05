@@ -1,24 +1,66 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>This page shows the info for the page</h1>
-<p>We could later add in user reviews of the class here, or other info such as costs for non-members</p>
 
-<p>{{session.name}}, {{session.type}}, {{session.date}}, {{session.start_time}}, {{session.end_time}}, {{session.capacity}}
-</p>
-<p>
-    The following customers are booked into this session:
-    {% for customer in customers_booked %}
-        <p>
-            {{customer.alias}}
-        </p>
-    {% endfor %}
-</p>
-<p>
-    <button type='button'><a href="/sessions/{{session.id}}/edit">Edit Event</a></button>
-</p>
+<article>
+    <table>
+        <caption><h2>Training Session Details</h2></caption>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Date</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Capacity</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{session.name}}</td>
+                <td>{{session.type}}</td>
+                <td>{{session.date}}</td>
+                <td>{{session.start_time}}</td>
+                <td>{{session.end_time}}</td>
+                <td>{{session.capacity}}</td>
+            </tr>
+    </table>
+</article>
 
-<form class='delete_button' action='/sessions/{{session.id}}/delete' method='POST'>
-    <button type='submit'><img src='static/icons/clear_black_24dp.svg' alt="delete icon"></button>
-</form>
+<aside class='edit_button_aside'>
+    <a href="/sessions/{{session.id}}/edit">
+        <button type='button'>
+            Edit Session
+        </button>
+    </a>
+</aside>
+
+<article>
+    <table>
+        <caption><h2>Customers Booked</h2></caption>
+        <thead>
+            <tr>
+                <th>Forename</th>
+                <th>Surname</th>
+                <th>Alias</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for customer in customers_booked %}
+            <tr>
+                <td>{{customer.forename}}</td>
+                <td>{{customer.surname}}</td>
+                <td>{{customer.alias}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</article>
+
+<aside>
+    <form class='delete_button' action='/sessions/{{session.id}}/delete' method='POST'>
+        <button type='submit'>Delete Session</button>
+    </form>
+</aside>
 
 {% endblock  %}
