@@ -30,10 +30,7 @@ def select(id):
     return customer
 
 def update(customer):
-    sql = 'UPDATE customers SET (forename, surname, alias, membership_status, membership_type) = row(%s, %s, %s, %s, %s) WHERE id = %s'
-    # This is a weird one. Session didn't need row(%s) to work, just (%s)
-    # Is it because I only have the one variable?
-    # See what happens when I add in extensions
+    sql = 'UPDATE customers SET (forename, surname, alias, membership_status, membership_type) = (%s, %s, %s, %s, %s) WHERE id = %s'
     values = [customer.forename, customer.surname, customer.alias, customer.membership_status, customer.membership_type, customer.id]
     run_sql(sql,values)
 

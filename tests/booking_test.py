@@ -21,4 +21,4 @@ class TestBooking(unittest.TestCase):
 
     # The initial id is set to zero, pre-saving
     def test_booking_initial_id_none(self):
-        self.assertEqual(None, self.booking.id)
+        self.assertEqual(None, self.booking.id)d

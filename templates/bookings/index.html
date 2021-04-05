@@ -1,17 +1,42 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>This will be a table of all bookings</h1>
 
-{% for booking in bookings %}
-   
-    <p> {{booking.customer.alias}} is booked into: {{booking.session.name}}, on {{booking.session.date}}, at {{booking.session.start_time}}
+<aside>
+    <a href="/bookings/new">
+        <button class='new_button'>
+            <img src='static/icons/create_black_24dp.svg' alt="create icon">
+            Add New Booking
+        </button>
+    </a>
+</aside>
 
-    </p>
-    <form class='delete_button' action='/bookings/{{booking.id}}/delete' method='POST'>
-        <button type='submit'>Remove Booking</button>
-    </form>
-{% endfor %}
-
-<button type='button'><a href="/bookings/new">Add New Booking</a></button>
+<article>
+    <table>
+        <thead>
+            <tr>
+                <th>Customer Alias</th>
+                <th>Session Name</th>
+                <th>Session Date</th>
+                <th>Session Start Time</th>
+                <th>Remove Booking</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for booking in bookings %}
+                <tr>
+                    <td>{{booking.customer.alias}}</td>
+                    <td>{{booking.session.name}}</td>
+                    <td>{{booking.session.date}}</td>
+                    <td>{{booking.session.start_time}}</td>
+                    <td>
+                        <form class='delete_button' action='/bookings/{{booking.id}}/delete' method='POST'>
+                            <button type='submit'><img src='static/icons/clear_white_24dp.svg' alt="delete icon"></button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</article>
 
 {% endblock  %}

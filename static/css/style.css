@@ -6,36 +6,46 @@ body {
     margin: 0;
     padding: 0;
     height: 100%;
-    /* display: flex;
-    flex-direction: column; */
     color: white;
 }
 
 header, footer{
     background-color:rgba(197, 197, 197, 0.7);
     width: 100%;
-    display: inline-block;
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    /* flex-wrap: wrap;  */
+        /* This will wrap the nav bar under the RESISTANCE TEMPLE for smaller screens */
 }
 
-
 .flex-container {
-    /* background-color:rgba(197, 197, 197, 0.3); */
-    background-color: grey;
+    background-color:rgba(197, 197, 197, 0.4);
     display:flex;
-    flex-flow: column wrap;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-top: 3px;
+    padding: 0 5%;
+}
+
+.flex-container > article {
+    padding-bottom: 3%;
+    display: flex;
+    justify-content: center;
+}
+
+aside {
+    display:flex;
+    justify-content: center;
+    margin-top: 3%;
+    margin-bottom: 1%;
 }
 
 table {
-    /* border: 1px solid black;
-    border-collapse: collapse;
-    padding: 5px;
-    text-align: left;
-    border-spacing: 5px; */
+    background-color: grey;
     border-collapse: collapse;
     margin: 25px 0;
-    min-width: 400px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.2)
-
+    box-shadow: 0 0 30px rgba(0,0,0,0.8), 0 0 50px rgba(255, 255, 255, 0.3);
 }
 
 th {
@@ -71,9 +81,10 @@ h2{
 }
 nav {
     font-size: 22px;
-    float:right;
+    /* flex: right;
+    float: right; */
+    /* justify-content: right; */
     margin-right: 5%;
-    color: black;
 }
 
 ul {
@@ -92,7 +103,7 @@ li > a {
 
 a {
     text-decoration: none;
-    /* color: black; */
+    color: black;
     display: table-cell; 
         /* Prevents links separating onto two lines with smaller screen */
 }
@@ -114,3 +125,47 @@ footer {
     margin-left: 5%;
     letter-spacing: 12px;
 }
+
+button {
+    width: auto;
+    height: 45px;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5)
+}
+
+button:hover {
+    border: 1px solid black;
+    background-color: white;
+    color: blue;
+}
+.new_button {
+    background-color: rgb(199, 190, 190);
+}
+
+form > button {
+    background-color: rgb(209, 41, 41);
+    width: 50px;
+}
+
+form > button:hover {
+    background-color: red;
+}
+
+/* BUTTON CLASSES:
+    edit_button
+    new_button
+    delete_button
+    submit_button
+     */
+
+/* TO DO:
+    Move 'new' button to right hand side, near the table
+    Make the active page text stay white, so we dont need headings
+    Change the tab titles to reflect the page itself
+    Table anchors, either change to a logo, or make it match the row. Also white when hover is bad here
+
+
+*/

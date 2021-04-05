@@ -1,10 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h2>Customer Data</h2>
-
 <aside>
-    <button><a href="/customers/new">New Customer</a></button>
+    <a href="/customers/new">
+        <button class='new_button'>
+            <img src='static/icons/create_black_24dp.svg' alt="create icon">
+            Add New Customer
+        </button>
+        </a>
 </aside>
 
 <article>

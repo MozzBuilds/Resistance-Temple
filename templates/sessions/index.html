@@ -1,15 +1,42 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>This will be a table of all sessions, past/present/upcoming</h1>
+<aside>
+    <a href="/sessions/new">
+        <button class='new_button'>
+            <img src='static/icons/create_black_24dp.svg' alt="create icon">
+            Add New Session
+        </button>
+    </a>
+</aside>
 
-{% for session in sessions  %}
-    <p>{{session.name}}, {{session.type}}, {{session.date}}, {{session.start_time}}, {{session.end_time}}, {{session.capacity}} <a href="/sessions/{{session.id}}">Session Info</a>
-    </p>
-{% endfor %}
-
-<p>
-    <button><a href="/sessions/new">New Session</a></button>
-</p>
+<article>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Date</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Maximum capacity</th>
+                <th>View Session</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for session in sessions  %}
+            <tr>
+                <td>{{session.name}}</td>
+                <td>{{session.type}}</td>
+                <td>{{session.date}}</td>
+                <td>{{session.start_time}}</td>
+                <td>{{session.end_time}}</td>
+                <td>{{session.capacity}}</td>
+                <td><a href="/sessions/{{session.id}}">Session Info</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</article>
 
 {% endblock  %}
