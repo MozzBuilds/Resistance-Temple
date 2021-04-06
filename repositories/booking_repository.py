@@ -53,5 +53,6 @@ def duplicate_check(new_booking):
     bookings = select_all()
     for booking in bookings:
         if booking.customer.id == new_booking.customer.id and booking.session.id == new_booking.session.id: 
-            return
+            return True
+            #Return True if a duplicate is found
     return False

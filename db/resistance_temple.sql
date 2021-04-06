@@ -9,7 +9,7 @@ CREATE TABLE customers (
     alias VARCHAR,
     membership_status VARCHAR,
     membership_type VARCHAR
-    -- monthly_sessions_had INT
+  
 );
 
 CREATE TABLE sessions (
@@ -20,8 +20,6 @@ CREATE TABLE sessions (
     start_time VARCHAR,
     end_time VARCHAR,
     capacity INT
-    -- finished/in the past BOOLEAN
-    -- room VARCHAR
 );
 
 CREATE TABLE bookings (
@@ -30,6 +28,3 @@ CREATE TABLE bookings (
     session_id INT REFERENCES sessions(id) ON DELETE CASCADE,
     review TEXT
 );
--- To delete a customer OR a session, I need to have ON DELETE CASCADE at the end of lines 28 and 29
--- However
--- When I delete a booking, this then deletes the customer
