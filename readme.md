@@ -32,4 +32,4 @@ The purpose of the project was to visually represent the skills obtained or expa
 
 
 ## Home Page:
-![Home Page](readme_images/home.png)
+![Home Page](readme_images/Home.png)
