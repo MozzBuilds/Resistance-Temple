@@ -1,6 +1,10 @@
-# This is a first attempt at a full stack project, designed and built by Colin Morrison, Codeclan Student.
+# Reistance Temple
+
+
+## This was designed and built by Colin Morrison, Codeclan Student, and is a first attempt at full stack development
 
 The purpose of the project was to visually represent the skills obtained or expanded upon, during the first 4 weeks of Codeclan's Professional Software Development Bootcamp, March 2021 - Cohert G24.
+
 
 ## The project was based upon the following brief:
 
@@ -11,11 +15,13 @@ The purpose of the project was to visually represent the skills obtained or expa
 * The app should show a list of all upcoming classes
 * The app should show all members that are booked in for a particular class"
 
+
 ## The app was all produced in Visual Studio code, utilizing the below technologies:
 * PSQL
 * Python3
 * Flask
 * HTML5 and CSS
+
 
 ## To run the app once downloaded:
 * Open up the RESISTANCE_TEMPLE folder in Visual Studio Code
@@ -30,15 +36,48 @@ The purpose of the project was to visually represent the skills obtained or expa
     * http://localhost:5000/
 * The home page will now be visible, and the site navigatable
 
+## Home Page:
+![Home_page](readme_images/view_home.png)
 
-## Home Page
-![Home Page](readme_images/home.png)
 
-## Gym Classes (Sessions)
-![Gym Sessions](readme_images/sessions.png)
+## Key Front End Features:
+* View all members (Customers)
+* View all gym classes (sessions)
+* Book a Customer into a given Session
+* View all Bookings
+* View a single Customer, showing all their current Bookings. The Customer can be Edited or Removed
+* View a single Session, showing all current Customer Bookings in the Session. The Session can be Edited, or Removed
+* Bookings can also be removed from the Bookings page
 
-## View Individual Session
+
+## Other Front End Functionality:
+* When adding or editing a Session:
+    * User can choose Dates and Times via Date/Time inputs
+    * Date cannot be earlier than the Today's date
+    * Time cannot be outwith the Gym Opening Hours (07:00-21:00) - Also our default Start/End times
+    * Capacity cannot be < 1
+
+
+## Other Back End Functionality:
+* When adding a Customer:
+    * A customer Alias is unique and will be checked for duplicated. The Alias cannot be edited, including upper/lowercase variants
+* When adding a new Session:
+    * The gym only has one room available for sessions. There cannot be an overlap of times
+* When Booking a Customer into a Session:
+    * Session must not be at full capacity
+    * Customer must have an 'Active' membership
+    * Booking must not already exist for the same Customer and Session
+
+
+## Gym Classes (Sessions):
+![Gym_Sessions](readme_images/view_sessions.png)
+
+
+## View Individual Session:
 ![Session](readme_images/view_session.png)
 
-## View Individual Customer
+
+## View Individual Customer:
 ![Customer](readme_images/view_customer.png)
+
+

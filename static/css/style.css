@@ -6,6 +6,7 @@ body {
     margin: 0;
     padding: 0;
     height: 100%;
+    width: 100%;
     color: white;
     background-color: black;
     display: flex;
@@ -25,7 +26,15 @@ footer {
     position:fixed;
     bottom: 0;
     width: 100%;
-    flex: auto;
+    margin: 0;
+}
+
+footer > ul {
+    display: flex;
+    /* flex-direction: r */
+    justify-content:space-between;
+    padding: 0;
+    margin: 0 5%;
 }
 
 .flex-container {
