@@ -18,25 +18,25 @@
         <div>
             <label for="date">Date</label>
             <br>
-            <input type="date" id='date' name='date' required>
+            <input type="date" id='date' name='date' min={{today}} required>
         </div>
         <br>
         <div>
             <label for="start_time">Start Time</label>
             <br>
-            <input type="time" id='start_time' name='start_time' value='07:00' required>
+            <input type="time" id='start_time' name='start_time' value='07:00' min='07:00' max='21:00' required>
         </div>
         <br>
         <div>
             <label for="end_time">End Time</label>
             <br>
-            <input type="time" id='end_time' name='end_time' value='21:00' required>
+            <input type="time" id='end_time' name='end_time' value='21:00' min='07:00' max='21:00' required>
         </div>
         <br>
         <div>
             <label for="capacity">Capacity</label>
             <br>
-            <input type="number" id='capacity' name='capacity' placeholder='10' required>
+            <input type="number" id='capacity' name='capacity' min='1' max='50' placeholder='10' required>
         </div>
 
         <button class='submit_button' type='submit'>Add New Session</button>

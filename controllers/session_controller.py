@@ -3,7 +3,7 @@ from flask import Blueprint
 from models.session import Session
 import repositories.session_repository as session_repository
 
-from datetime import datetime
+from datetime import date, datetime
 
 sessions_blueprint = Blueprint('sessions', __name__)
 
@@ -24,7 +24,8 @@ def show(id):
 @sessions_blueprint.route('/sessions/<id>/edit')
 def edit(id):
     session = session_repository.select(id)
-    return render_template('/sessions/edit.html', title=session.name, session=session)
+    today = date.today() #Grabs todays date so we can't set dates to be in the past
+    return render_template('/sessions/edit.html', title=session.name, session=session, today=today)
 
 # Update an individual session
 @sessions_blueprint.route('/sessions/<id>', methods=['POST'])
@@ -38,14 +39,19 @@ def update_session(id):
     start_time = request.form['start_time']
     end_time = request.form['end_time']
     capacity = request.form['capacity']
-    session = Session(name, type, date, start_time, end_time, capacity, id)
-    session_repository.update(session)
-    return redirect('/sessions')
+    updated_session = Session(name, type, date, start_time, end_time, capacity, id)
+
+    if session_repository.availability_check(updated_session):
+        session_repository.update(updated_session)
+        return redirect('/sessions')
+    else:
+        return 'Session overlaps another'
    
 # Form to add a new session
 @sessions_blueprint.route('/sessions/new')
 def new():
-    return render_template('/sessions/new.html', title='New Training Session')
+    today = date.today() #Grabs todays date so we can't set dates to be in the past
+    return render_template('/sessions/new.html', title='New Training Session', today=today)
 
 # #Create a new session
 @sessions_blueprint.route('/sessions', methods=['POST'])
@@ -58,7 +64,7 @@ def create():
     end_time = request.form['end_time']
     capacity = request.form['capacity']
     new_session = Session(name, type, date, start_time, end_time, capacity)
-
+    
     # Checks if there is an overlap with another session, assuming gym only has one room for sessions
     if session_repository.availability_check(new_session):
         session_repository.save(new_session)

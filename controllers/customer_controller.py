@@ -34,9 +34,12 @@ def update_customer(id):
     alias = request.form['alias']
     membership_status = request.form['membership_status']
     membership_type = request.form['membership_type']
-    customer = Customer(forename, surname, alias, membership_status, membership_type,id)
-    customer_repository.update(customer)
-    return redirect('/customers')
+    updated_customer = Customer(forename, surname, alias, membership_status, membership_type,id)
+    if customer_repository.duplicate_check(updated_customer):
+        return 'That alias has already been taken. The customer may choose another, or the customer may already be on the system'
+    else:
+        customer_repository.update(updated_customer)
+        return redirect('/customers')
 
 # Form to add a new customer
 @customers_blueprint.route('/customers/new')
@@ -57,8 +60,6 @@ def create():
     else:
         customer_repository.save(new_customer)
         return redirect('/customers')
-    customer_repository.save(new_customer)
-    return redirect('/customers')
 
 # Delete a customer
 @customers_blueprint.route('/customers/<id>/delete', methods=['POST'])

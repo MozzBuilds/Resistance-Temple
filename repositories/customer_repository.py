@@ -64,7 +64,7 @@ def sessions(customer):
 def duplicate_check(new_customer):
     customers = select_all()
     for customer in customers:
-        if customer.alias == new_customer.alias: 
+        if customer.alias.upper() == new_customer.alias.upper(): 
             return True
     return False
 
