@@ -1,8 +1,8 @@
 from flask import Flask, render_template
 
-from controllers.booking_controller import bookings_blueprint
-from controllers.session_controller import sessions_blueprint
-from controllers.customer_controller import customers_blueprint
+from controllers.bookings_controller import bookings_blueprint
+from controllers.sessions_controller import sessions_blueprint
+from controllers.customers_controller import customers_blueprint
 
 app = Flask(__name__)
 
@@ -16,3 +16,6 @@ def home():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+

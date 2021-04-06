@@ -48,11 +48,9 @@ def delete(id):
     values = [id]
     run_sql(sql, values)
 
-# Check for duplicate booking, via customer ID matching session ID
 def duplicate_check(new_booking):
     bookings = select_all()
     for booking in bookings:
         if booking.customer.id == new_booking.customer.id and booking.session.id == new_booking.session.id: 
             return True
-            #Return True if a duplicate is found
     return False

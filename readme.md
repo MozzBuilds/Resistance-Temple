@@ -1,9 +1,9 @@
 # Reistance Temple
 
 
-## This was designed and built by Colin Morrison, Codeclan Student, and is a first attempt at full stack development
+## This was designed and built by Colin Morrison (A Codeclan Student), and is a first attempt at full stack development.
 
-The purpose of the project was to visually represent the skills obtained or expanded upon, during the first 4 weeks of Codeclan's Professional Software Development Bootcamp, March 2021 - Cohert G24.
+The purpose of the project was to visually represent my skills obtained and expanded upon, during the first 4 weeks of Codeclan's Professional Software Development Bootcamp, March 2021 - Cohert G24.
 
 
 ## The project was based upon the following brief:
@@ -16,14 +16,14 @@ The purpose of the project was to visually represent the skills obtained or expa
 * The app should show all members that are booked in for a particular class"
 
 
-## The app was all produced in Visual Studio code, utilizing the below technologies:
+## The app was all produced in Visual Studio code, utilizing:
 * PSQL
 * Python3
 * Flask
 * HTML5 and CSS
 
 
-## To run the app once downloaded:
+## To run the app once saved locally:
 * Open up the RESISTANCE_TEMPLE folder in Visual Studio Code
 * Open up two terminals preferably, and change directory into the above folder
 * In Terminal 1, run the following commands:
