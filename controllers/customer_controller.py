@@ -52,7 +52,7 @@ def create():
     membership_status = request.form['membership_status']
     membership_type = request.form['membership_type']
     new_customer = Customer(forename, surname, alias, membership_status, membership_type)
-    if customer_repository.duplicate_check(new_customer) == True:
+    if customer_repository.duplicate_check(new_customer):
         return 'That alias has already been taken. The customer may choose another, or the customer may already be on the system'
     else:
         customer_repository.save(new_customer)

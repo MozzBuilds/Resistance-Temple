@@ -62,6 +62,7 @@ def capacity_check(session):
     else:
         return True
 
+#Checks there is no overlap in sessions since we only have 1 room available
 def availability_check(new_session):
     sessions = select_all()
     for session in sessions:

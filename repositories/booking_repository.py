@@ -7,6 +7,7 @@ from models.booking import Booking
 import repositories.customer_repository as customer_repository
 import repositories.session_repository as session_repository
 
+# Save a new booking
 def save(booking):
     sql = 'INSERT INTO bookings(customer_id, session_id) VALUES ( %s, %s) RETURNING id'
     values = [booking.customer.id, booking.session.id]
@@ -14,6 +15,7 @@ def save(booking):
     booking.id = results[0]['id']
     return booking
 
+# Selects all bookings
 def select_all():
     bookings = []
     sql = 'SELECT * FROM bookings'
@@ -23,33 +25,33 @@ def select_all():
         session = session_repository.select(row['session_id'])
         booking = Booking(customer, session, row['id'])
         bookings.append(booking)
-    
     return bookings
 
-# This is used in our booking_controller
-# It checks if a booking for a Customer and Session already exists, before making the booking
+# Selects a singular booking based on booking id
 def select(id):
     booking = None
     sql = 'SELECT * FROM bookings WHERE id = %s'
     values = [id]
     result = run_sql(sql, values)[0]
-  
-    if result is not None:
+    if result != None:
         booking = Booking(result['customer'], result['session'], result['id'])
     return booking
 
+# Delete all bookings, currently only used by console.py
 def delete_all():
     sql = 'DELETE FROM bookings'
     run_sql(sql)
 
+# Delete one booking
 def delete(id):
     sql = 'DELETE FROM bookings WHERE id = %s'
     values = [id]
     run_sql(sql, values)
 
+# Check for duplicate booking, via customer ID matching session ID
 def duplicate_check(new_booking):
     bookings = select_all()
     for booking in bookings:
         if booking.customer.id == new_booking.customer.id and booking.session.id == new_booking.session.id: 
-            return True
+            return
     return False

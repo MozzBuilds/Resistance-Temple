@@ -60,7 +60,7 @@ def create():
     new_session = Session(name, type, date, start_time, end_time, capacity)
 
     # Checks if there is an overlap with another session, assuming gym only has one room for sessions
-    if session_repository.availability_check(new_session) == True:
+    if session_repository.availability_check(new_session):
         session_repository.save(new_session)
         return redirect('/sessions')
     else:

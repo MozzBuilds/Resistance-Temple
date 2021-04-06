@@ -8,17 +8,13 @@ import repositories.booking_repository as booking_repository
 
 bookings_blueprint = Blueprint('bookings', __name__)
 
+# Show all bookings
 @bookings_blueprint.route('/bookings')
 def bookings():
     bookings = booking_repository.select_all()
     return render_template('bookings/index.html', title='Bookings', bookings=bookings)
 
-# @bookings_blueprint.route('/bookings/<id>')
-# def show(id):
-#     booking = booking_repository.select_by_id(id)
-#     return render_template('bookings/show.html', booking=booking)
-# This might be deleted. Might add this to sessions instead, or just allow edits/deletes from the select_all route
-
+# Form to add a new booking
 @bookings_blueprint.route('/bookings/new')
 def new():
     customers = customer_repository.select_all()
@@ -37,11 +33,11 @@ def create():
     new_booking = Booking(customer,session)
     # Is there an alternative to all these stacked conditions?
 
-    if customer_repository.membership_status_check(customer_id) == True:
-        if booking_repository.duplicate_check(new_booking) == True:
+    if customer_repository.membership_status_check(customer_id):
+        if booking_repository.duplicate_check(new_booking):
             return 'Booking Already Exists. No new booking has been made'
         else:
-            if session_repository.capacity_check(session) == False:
+            if not session_repository.capacity_check(session):
                 return 'This session is already at maximum capacity and cannot be booked at this time'
             else:
                 booking_repository.save(new_booking)
@@ -49,6 +45,7 @@ def create():
     else:
         return 'The customer has an inactive membership and cannot be booked at this time'
 
+# Delete a booking
 @bookings_blueprint.route('/bookings/<id>/delete', methods=['POST'])
 def delete(id):
     booking_repository.delete(id)
