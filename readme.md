@@ -31,5 +31,14 @@ The purpose of the project was to visually represent the skills obtained or expa
 * The home page will now be visible, and the site navigatable
 
 
-## Home Page:
-![Home Page](readme_images/Home.png)
+## Home Page
+![Home Page](readme_images/home.png)
+
+## Gym Classes (Sessions)
+![Gym Sessions](readme_images/sessions.png)
+
+## View Individual Session
+![Session](readme_images/view_session.png)
+
+## View Individual Customer
+![Customer](readme_images/view_customer.png)
