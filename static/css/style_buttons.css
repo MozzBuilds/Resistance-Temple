@@ -31,19 +31,11 @@ button:active{
     color: white;
 }
 
-/* .delete_button_form > button{
-    background-color: rgba(200, 38, 38, 0.808);
-    width: auto;
-    box-shadow: none;
-    color: white; 
-/} */
-
 .delete_button > button {
     background-color: rgba(200, 38, 38, 0.808);
     width: auto;
     box-shadow: none;
     color: white;
-
 } 
 
 .delete_button > button:hover {
@@ -72,9 +64,3 @@ button:active{
 .submit_button{
     margin-top: 15%;
 }
-/* BUTTON CLASSES:
-    new_button
-    delete_button
-    submit_button
-    see_more_button
-     */

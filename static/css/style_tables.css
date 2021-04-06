@@ -3,7 +3,7 @@ table {
     background-color: grey;
     border-collapse: collapse;
     border: 1px thin black;
-    margin: 25px 0;
+    margin: 10px;
     box-shadow: 0 0 30px rgba(0,0,0,0.8), 0 0 50px rgba(255, 255, 255, 0.3);
 }
 thead, tr {
@@ -21,7 +21,6 @@ th, td {
     padding: 10px 13px;
 }
 
-
 tr:nth-of-type(odd) {
     background-color:rgb(218, 216, 216);
     color: black;
@@ -31,3 +30,5 @@ tr:hover{
     background-color: rgb(230, 228, 228);
     color: blue;
 }
+
+

@@ -7,9 +7,12 @@ body {
     padding: 0;
     height: 100%;
     color: white;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
 }
 
-header, footer{
+header {
     background-color:rgba(197, 197, 197, 0.7);
     width: 100%;
     display: flex;
@@ -17,26 +20,33 @@ header, footer{
     justify-content:space-between;
 }
 
+footer {
+    background-color:rgba(197, 197, 197, 0.7);
+    position:fixed;
+    bottom: 0;
+    width: 100%;
+    flex: auto;
+}
+
 .flex-container {
     background-color:rgba(197, 197, 197, 0.4);
-    display:flex;
-    flex-wrap: wrap;
-    flex-direction: column;
     margin-top: 3px;
     padding: 0 5%;
+    margin-bottom: 40px;
 }
 
 .flex-container > article {
     padding-bottom: 1%;
     display: flex;
     justify-content: center;
+    margin-bottom: 20px;
 }
 
 aside {
     display:flex;
     justify-content: center;
-    margin-top: 3%;
-    margin-bottom: 1%;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 h2{
@@ -72,11 +82,6 @@ a {
 }
 a:hover {
     color: white;
-}
-
-footer {
-    position: absolute;
-    bottom: 0;
 }
 
 #gym_name {

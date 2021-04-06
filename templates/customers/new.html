@@ -25,6 +25,9 @@
             <label for="membership_status">Membership Status</label>
             <br>
             <select name="membership_status" id="membership_status">
+                <!-- {% for membership_type in  membership_types%}
+                    <option value="{{membership_type}}">{{membership_type}}</option>
+                {% endfor %} -->
                 <option value="Active">Active</option>
                 <option value="Inactive">Inactive</option>
             </select>
@@ -34,6 +37,11 @@
             <label for="membership_type">Membership Type</label>
             <br>
             <select name="membership_type" id="membership_type">
+                <!-- {% for membership_type in membership_types%}
+                    <option value="{{membership_type}}">{{membership_type}}</option>
+                {% endfor %} -->
+                <!-- This won't work till I throw the memberships into my controller.
+                Which I currently can't find how to do, with where I have put the membership types in Customer class -->
                 <option value="None">None</option>
                 <option value="Silver">Silver</option>
                 <option value="Gold">Gold</option>

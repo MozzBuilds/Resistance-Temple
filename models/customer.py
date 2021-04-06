@@ -7,5 +7,6 @@ class Customer:
         self.membership_status = membership_status
         self.membership_type = membership_type
         self.id = id
+        
         self.membership_status_types = ['Active', 'Inactive']
         self.membership_types = ['None', 'Silver', 'Gold', 'Platinum']

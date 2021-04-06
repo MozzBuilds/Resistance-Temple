@@ -16,12 +16,6 @@
         </div>
         <br>
         <div>
-            <label for="alias">Preferred Alias</label>
-            <br>
-            <input type="text" id='alias' name='alias' value='{{ customer.alias }}' required>
-        </div>
-        <br>
-        <div>
             <label for="membership_status">Membership Status</label>
             <br>
             <select name="membership_status" id="membership_status">
@@ -32,7 +26,6 @@
                         <option value="{{membership_status}}">{{membership_status}}</option>                    
                     {% endif %}
                 {% endfor %}
-
             </select>
         </div>
         <br>
