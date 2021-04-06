@@ -1,6 +1,6 @@
 # This is a first attempt at a full stack project, designed and built by Colin Morrison, Codeclan Student.
 
-### The purpose of the project was to visually represent the skills obtained or expanded upon, during the first 4 weeks of Codeclan's Professional Software Development Bootcamp, March 2021 - Cohert G24.
+The purpose of the project was to visually represent the skills obtained or expanded upon, during the first 4 weeks of Codeclan's Professional Software Development Bootcamp, March 2021 - Cohert G24.
 
 ## The project was based upon the following brief:
 
@@ -24,8 +24,12 @@
     * createdb resistance_temple
     * psql -d resistance_temple db/resistance_temple.sql;
     * python3 console.py
-* In Terminal 3:
+* In Terminal 2 (must remain open after running):
     * flask run
 * Open up your browser (Chrome preferred), and redirect to:
     * http://localhost:5000/
 * The home page will now be visible, and the site navigatable
+
+
+## Home Page:
+![Home Page](readme_images/home.png)
