@@ -14,6 +14,10 @@ app.register_blueprint(customers_blueprint)
 def home():
     return render_template('index.html', title='Home')
 
+@app.route('/info')
+def other():
+    return render_template('info/index.html', title='Info')
+
 if __name__ == '__main__':
     app.run(debug=True)
 
