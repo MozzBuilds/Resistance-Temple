@@ -80,5 +80,6 @@ The purpose of the project was to visually represent my skills obtained and expa
 ## Add a New Session
 ![New Session](readme_images/session_add.png)
 
+
 ## Add a New Booking
 ![New Booking](readme_images/booking_add.png)
