@@ -37,7 +37,7 @@ The purpose of the project was to visually represent my skills obtained and expa
 * The home page will now be visible, and the site navigatable
 
 ## Home Page:
-![Home_page](readme_images/view_home.png)
+![Home_page](readme_images/home.png)
 
 
 ## Key Front End Features:
@@ -69,15 +69,16 @@ The purpose of the project was to visually represent my skills obtained and expa
     * Booking must not already exist for the same Customer and Session
 
 
-## Gym Classes (Sessions):
-![Gym_Sessions](readme_images/view_sessions.png)
+## View All Customers
+![All Customers](readme_images/customers_view.png)
 
 
-## View Individual Session:
-![Session](readme_images/view_session.png)
+## View Individual Session
+![One Session](readme_images/session_view.png)
 
 
-## View Individual Customer:
-![Customer](readme_images/view_customer.png)
+## Add a New Session
+![New Session](readme_images/session_add.png)
 
-
+## Add a New Booking
+![New Booking](readme_images/booking_add.png)
