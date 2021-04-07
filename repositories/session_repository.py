@@ -69,7 +69,7 @@ def availability_check(new_session):
         if session.date == new_session.date:
             if (new_session.start_time < session.end_time):
                 if (new_session.end_time > session.start_time):
+                    if session.name == new_session.name:
+                        return True
                     return False
     return True
-
-    # Inverse this if possible to simplify and get a return quicker

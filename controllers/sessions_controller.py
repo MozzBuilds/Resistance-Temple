@@ -34,8 +34,6 @@ def update_session(id):
     type = request.form['type']
     date_date = request.form['date']
     date = datetime.strptime(date_date, '%Y-%m-%d').strftime('%d-%m-%Y')
-        # Date from the form is in reverse
-        # This line reverses the date, as a string
     start_time = request.form['start_time']
     end_time = request.form['end_time']
     capacity = request.form['capacity']
