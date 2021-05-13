@@ -28,7 +28,7 @@ The purpose of the project was to visually represent my skills obtained and expa
 * Open up two terminals preferably, and change directory into the above folder
 * In Terminal 1, run the following commands:
     * createdb resistance_temple
-    * psql -d resistance_temple db/resistance_temple.sql;
+    * psql -d resistance_temple -f db/resistance_temple.sql;
     * python3 console.py
 * In Terminal 2 (must remain open after running):
     * flask run
